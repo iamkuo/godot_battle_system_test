@@ -1,0 +1,8 @@
+res://scripts/game_manager.gd
+res://unit.tscn
+res://projectile.opponent.gd
+res://Main.tscn
+res://projectile.gd
+res://scenes/cards/archer.tscn
+res://scenes/cards/allies_projectile.tscn
+res://character_body_2d.gd

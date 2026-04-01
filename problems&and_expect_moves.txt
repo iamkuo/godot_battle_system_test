@@ -1,0 +1,9 @@
+unitrcontainer root check &analyze done
+pack unit in scene half way done
+ultilize projectile on unit scene done
+3/26
+position of spawn points of allies has to be bound on player 
+
+change spawn method and logic to follow
+
+and a potential problem is that there is a limit of amount of allies spawning but the elixcer is still counting and floating while triggered 

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgi0r3kaf5vl"]
+
+[ext_resource type="Script" uid="uid://c6sklel3s34i1" path="res://projectile.gd" id="1_nu8mh"]
+[ext_resource type="Texture2D" uid="uid://cgw01vlwah00l" path="res://scenes/—Pngtree—vector forward icon_4184777.png" id="2_fqljd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_03owx"]
+radius = 26.0
+
+[node name="projectile" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_nu8mh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_03owx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.999939, 4)
+scale = Vector2(0.18261719, 0.06933594)
+texture = ExtResource("2_fqljd")
