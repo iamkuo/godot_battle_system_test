@@ -12,7 +12,7 @@ func take_damage(amount:int):
 		on_destroyed()
 
 func on_destroyed():
-	var gm = get_tree().root.get_node("Main/GameManager")
+	var gm = get_tree().root.get_node("Main")
 	if gm:
 		gm.on_tower_destroyed(self)
 	queue_free()

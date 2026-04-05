@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs71l34xeqxed"]
+
+[ext_resource type="Script" uid="uid://l10agkbes1y8" path="res://scripts/unit.gd" id="1_k673f"]
+[ext_resource type="Script" uid="uid://ddhkiuay1afwj" path="res://scripts/projectile_opponent.gd" id="2_1jvru"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r0du0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_03owx"]
+radius = 26.0
+
+[node name="unit" type="CharacterBody2D"]
+script = ExtResource("1_k673f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(54, -16)
+shape = SubResource("CircleShape2D_r0du0")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(54, -16)
+collision_layer = 2
+script = ExtResource("2_1jvru")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_03owx")

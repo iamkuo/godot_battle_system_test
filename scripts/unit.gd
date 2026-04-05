@@ -56,7 +56,7 @@ func do_attack(t:Node):
 		p.global_position = global_position
 		p.target = t
 		p.damage = atk
-		get_tree().root.get_node("Main/unitcontainer/Units").add_child(p)
+		get_parent().add_child(p)
 	else:
 		if t.has_method("take_damage"):
 			t.take_damage(atk)
