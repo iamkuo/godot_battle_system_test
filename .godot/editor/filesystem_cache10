@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1775372262
+::res://::1775381410
 problems&and_expect_moves.txt::TextFile::-1::1774512136::0::1::::<><><>0<>0<><>::
 ::res://assets/::1775356939
 ia_600000034.png::CompressedTexture2D::4307810422296726028::1775314230::1775314313::1::::<><><>0<>0<>1788c6eee60acde4ef0cca589828ab6d<>res://.godot/imported/ia_600000034.png-8bdaca61bbfdac5cf5a2fab7a5f20d89.ctex::
@@ -46,8 +46,8 @@ Projectile.tscn::PackedScene::-1::1760589618::0::1::::<><><>0<>0<><>::res://scri
 Tower.tscn::PackedScene::-1::1774502454::0::1::::<><><>0<>0<><>::res://scripts/tower.gd
 unit.tscn::PackedScene::3717479759356626503::1775117391::0::1::::<><><>0<>0<><>::uid://l10agkbes1y8::::res://scripts/unit.gd<>uid://ddhkiuay1afwj::::res://scripts/projectile_opponent.gd
 ::res://scenes/cards/::1775117149
-allies_projectile.tscn::PackedScene::83106427558207413::1775117149::0::1::::<><><>0<>0<><>::uid://bq5jrl8q5ftd0::::res://scripts/projectile.gd<>uid://cgw01vlwah00l::::res://assets/—Pngtree—vector forward icon_4184777.png
-archer.tscn::PackedScene::5804116519168980175::1774504432::0::1::::<><><>0<>0<><>::uid://l10agkbes1y8::::res://scripts/unit.gd<>uid://bgi0r3kaf5vl::::res://scenes/cards/allies_projectile.tscn<>uid://cil4oh4376b0q::::res://scenes/下載.jpg
+allies_projectile.tscn::PackedScene::83106427558207413::1775372703::0::1::::<><><>0<>0<><>::res://scripts/projectile.gd<>res://assets/—Pngtree—vector forward icon_4184777.png
+archer.tscn::PackedScene::5804116519168980175::1775372697::0::1::::<><><>0<>0<><>::res://scripts/unit.gd<>uid://bgi0r3kaf5vl::::res://scenes/cards/allies_projectile.tscn<>res://assets/下載.jpg
 Speeder.tscn::PackedScene::-1::1760589618::0::1::::<><><>0<>0<><>::res://scripts/unit.gd
 Tank.tscn::PackedScene::-1::1760589618::0::1::::<><><>0<>0<><>::res://scripts/unit.gd
 ::res://scripts/::1775363733

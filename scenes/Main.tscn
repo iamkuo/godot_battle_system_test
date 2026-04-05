@@ -89,9 +89,6 @@ sources/2 = SubResource("TileSetAtlasSource_nxtc6")
 
 [node name="Main" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("4_rarhs")]
-position = Vector2(583, 313)
-
 [node name="Map" type="Node2D" parent="."]
 
 [node name="Ground" type="TileMapLayer" parent="Map"]
@@ -141,6 +138,9 @@ position = Vector2(100, -43)
 [node name="AITimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="Player" parent="." instance=ExtResource("4_rarhs")]
+position = Vector2(583, 313)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
