@@ -21,8 +21,8 @@ var local_team: int = 0
 
 func _ready():
 	var main = get_tree().current_scene
-	allies_container = main.get_node("UnitsContainer/AlliesContainer")
-	opponents_container = main.get_node("UnitsContainer/OpponentsContainer")
+	allies_container = main.get_node("AlliesContainer")
+	opponents_container = main.get_node("OpponentsContainer")
 	spawn_points = main.get_node("SpawnPoints")
 	ui = main.get_node("UI")
 	elixir = main.get_node("UI/UIPanel/ElixirSystem")
@@ -123,5 +123,3 @@ func on_tower_destroyed(tower: Node):
 	var winner = 1 - tower.team
 	show_message("Team %d won!" % winner)
 	get_tree().paused = true
-
-

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://coxs7lpgw7icl"]
 
-[ext_resource type="Script" uid="uid://l10agkbes1y8" path="res://scripts/unit.gd" id="1_btf8p"]
+[ext_resource type="Script" path="res://scripts/unit.gd" id="1_btf8p"]
 [ext_resource type="PackedScene" uid="uid://bgi0r3kaf5vl" path="res://scenes/cards/allies_projectile.tscn" id="2_foxc7"]
-[ext_resource type="Texture2D" uid="uid://cil4oh4376b0q" path="res://scenes/下載.jpg" id="3_jd3p1"]
+[ext_resource type="Texture2D" path="res://assets/下載.jpg" id="3_jd3p1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r0du0"]
 radius = 21.095022

@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://ovuv3k76j85k" path="res://scripts/character_body_2d.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://b0oecl585bnd3" path="res://assets/ia_600000096.png" id="2_qhqgy"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wkp8b"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_c01mt"]
 atlas = ExtResource("2_qhqgy")
 region = Rect2(0, 55, 29, 33)
@@ -74,13 +72,17 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wkp8b"]
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_g2els")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_wkp8b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mwfav")
 animation = &"walk"
 frame_progress = 0.9855049
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wkp8b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
