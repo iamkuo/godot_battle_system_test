@@ -1,3 +1,5 @@
+Node
+CanvasLayer
 TileMap
 Node2D
 AnimatedSprite2D
@@ -7,6 +9,5 @@ CharacterBody2D
 Timer
 CollisionPolygon2D
 Area2D
-Node
 Control
 TileMapLayer

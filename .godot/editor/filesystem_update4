@@ -1,1 +1,9 @@
+res://scenes/ending_screen.tscn
 res://scenes/Main.tscn
+res://scripts/elixir.gd
+res://scripts/game_manager.gd
+res://scripts/ending_screen.gd
+res://scenes/player.tscn
+res://scripts/player_in_battle.gd
+res://scenes/elixir_status_bar.tscn
+res://scripts/elixir_label.gd

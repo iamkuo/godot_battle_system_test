@@ -5,9 +5,26 @@ signal elixir_changed(current:int)
 @export var regen_per_sec:float = 1.0
 var current: float = 5.0
 
+@onready var elixir_bar: ProgressBar = $ElixirBar
+@onready var elixir_label: Label = $ElixirLabel
+
+func _ready():
+	# Initialize the progress bar
+	if elixir_bar:
+		elixir_bar.max_value = max_elixir
+		elixir_bar.value = current
+	# Connect to our own signal to update UI
+	elixir_changed.connect(_update_ui)
+
 func _process(delta):
 	current = min(max_elixir, current + regen_per_sec * delta)
 	emit_signal("elixir_changed", int(floor(current)))
+
+func _update_ui(current_amount: int):
+	if elixir_bar:
+		elixir_bar.value = current_amount
+	if elixir_label:
+		elixir_label.text = "Elixir: %d/%d" % [current_amount, max_elixir]
 
 func try_consume(amount:int) -> bool:
 	if int(floor(current)) >= amount:
