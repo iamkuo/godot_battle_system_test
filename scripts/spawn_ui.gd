@@ -1,4 +1,4 @@
-extends Node
+extends Control
 signal elixir_changed(current:int)
 
 @export var max_elixir:int = 10
@@ -16,6 +16,10 @@ func _ready():
 		elixir_bar.value = current
 	# Connect to our own signal to update UI
 	elixir_changed.connect(_update_ui)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept") or (event is InputEventKey and event.keycode == KEY_TAB and event.pressed):
+		visible = not visible
 
 func _process(delta):
 	current = min(max_elixir, current + regen_per_sec * delta)
