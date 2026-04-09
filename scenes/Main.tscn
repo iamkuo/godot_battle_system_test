@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=4 uid="uid://dbm3ecaqtfqdr"]
+[gd_scene load_steps=12 format=4 uid="uid://dbm3ecaqtfqdr"]
 
+[ext_resource type="Script" uid="uid://b31rhwq5tpdpi" path="res://scripts/game_manager.gd" id="1_nxtc6"]
 [ext_resource type="Texture2D" uid="uid://dtu2mud6hhf86" path="res://assets/environment/decor_8x8.png" id="1_vcsgt"]
 [ext_resource type="Texture2D" uid="uid://co5n7bwvy1gmq" path="res://assets/environment/plains.png" id="2_vcsgt"]
 [ext_resource type="Texture2D" uid="uid://dlayypi5c8aj3" path="res://assets/ia_600000111.png" id="3_vcsgt"]
 [ext_resource type="PackedScene" uid="uid://tu7tole1qm3h" path="res://scenes/player.tscn" id="4_rarhs"]
-[ext_resource type="PackedScene" uid="uid://djt8pp6lj3eyu" path="res://scenes/ending_screen.tscn" id="5_ending_screen"]
-[ext_resource type="PackedScene" uid="uid://bcer4at2wt3wi" path="res://scenes/elixir_status_bar.tscn" id="6_elixir_bar"]
+[ext_resource type="PackedScene" uid="uid://d2kbgk6v4hfw4" path="res://scenes/spawn_ui.tscn" id="6_nxtc6"]
+[ext_resource type="PackedScene" uid="uid://quque6ani7t8" path="res://scenes/ending_screen.tscn" id="7_jlsqs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlsqs"]
 texture = ExtResource("1_vcsgt")
@@ -111,6 +112,7 @@ sources/2 = SubResource("TileSetAtlasSource_nxtc6")
 sources/0 = SubResource("TileSetAtlasSource_jlsqs")
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_nxtc6")
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -165,7 +167,11 @@ position = Vector2(584, 328)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="EndingScreen" parent="UI" instance=ExtResource("5_ending_screen")]
-visible = false
+[node name="SpawnUI" parent="UI" instance=ExtResource("6_nxtc6")]
+anchors_preset = -1
+anchor_left = 0.058
+anchor_top = 0.5
+anchor_right = 0.95
 
-[node name="ElixirBar" parent="UI" instance=ExtResource("6_elixir_bar")]
+[node name="EndingScreen" parent="UI" instance=ExtResource("7_jlsqs")]
+visible = false

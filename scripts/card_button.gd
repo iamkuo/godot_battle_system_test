@@ -11,8 +11,15 @@ func _ready():
 
 func _on_pressed():
 	if not gm: return
+	print("Button pressed, cost=", cost, ", current elixir=", gm.elixir.get_current_int())
+	if gm.elixir.get_current_int() < cost:
+		print("Not enough elixir - aborting spawn")
+		gm.show_message("Not enough elixir")
+		return
 	if not gm.can_spawn(team, cost):
+		print("can_spawn returned false")
 		gm.show_message("Not enough elixir")
 		return
 	var spawn_pos = gm.get_spawn_point(team, lane)
-	gm.spawn_unit(unit_scene, spawn_pos, team, lane)
+	print("Spawning unit")
+	gm.spawn_unit(unit_scene, spawn_pos, team, lane, cost)

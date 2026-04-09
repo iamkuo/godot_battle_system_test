@@ -1,8 +1,9 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1775715862
+::res://::1775745064
 IMPLEMENTATION_GUIDE.md::TextFile::-1::1775395446::0::1::::<><><>0<>0<><>::
 problems&and_expect_moves.txt::TextFile::-1::1774512136::0::1::::<><><>0<>0<><>::
 PROJECT_ANALYSIS.md::TextFile::-1::1775395366::0::1::::<><><>0<>0<><>::
+README.md::TextFile::-1::1775740979::0::1::::<><><>0<>0<><>::
 ::res://assets/::1775715658
 ia_600000034.png::CompressedTexture2D::4307810422296726028::1775314230::1775314313::1::::<><><>0<>0<>1788c6eee60acde4ef0cca589828ab6d<>res://.godot/imported/ia_600000034.png-8bdaca61bbfdac5cf5a2fab7a5f20d89.ctex::
 ia_600000039.png::CompressedTexture2D::7165801951072767942::1775314230::1775314313::1::::<><><>0<>0<>ba9283222a70b7c41fc2d84caa924c73<>res://.godot/imported/ia_600000039.png-70e340cae7d28cafbb05d699a52789a8.ctex::
@@ -111,25 +112,30 @@ Win_loose.png::CompressedTexture2D::4979976302036736825::1759938646::1775715664:
 16 Border 01.png::CompressedTexture2D::4990255996853196958::1693486431::1775715664::1::::<><><>0<>0<>1cea3775da8246f051cbfdae994b2b90<>res://.godot/imported/16 Border 01.png-02b8e04c974eec1a73c038ec749273d6.ctex::
 16 Border 02.png::CompressedTexture2D::1547160460931348329::1693486431::1775715664::1::::<><><>0<>0<>c4ceaca55114e7475ba42e65caac7cf6<>res://.godot/imported/16 Border 02.png-50163d47553ddc9c399dbccc7b3791af.ctex::
 16 Border 03.png::CompressedTexture2D::3907929078752300077::1693486431::1775715664::1::::<><><>0<>0<>62e256dade78f7c16667a67f92cf231d<>res://.godot/imported/16 Border 03.png-a5d3bc3b42449dd78936480da43aae87.ctex::
-::res://scenes/::1775717108
-ending_screen.tscn::PackedScene::7832216105070708836::1775717130::0::1::::<><><>0<>0<><>::uid://yufm26pfieyn::::res://scripts/ending_screen.gd<>uid://cjmwhv0846in6::::res://assets/ui/panels/04 Border 03.png
-Main.tscn::PackedScene::7255930752538406031::1775717012::0::1::::<><><>0<>0<><>::uid://dtu2mud6hhf86::::res://assets/environment/decor_8x8.png<>uid://co5n7bwvy1gmq::::res://assets/environment/plains.png<>uid://dlayypi5c8aj3::::res://assets/ia_600000111.png<>uid://tu7tole1qm3h::::res://scenes/player.tscn<>uid://djt8pp6lj3eyu::::res://scenes/ending_screen.tscn
-player.tscn::PackedScene::1376853210593411407::1775717184::0::1::::<><><>0<>0<><>::uid://ovuv3k76j85k::::res://scripts/character_body_2d.gd<>uid://b0oecl585bnd3::::res://assets/ia_600000096.png
-Projectile.tscn::PackedScene::-1::1760589618::0::1::::<><><>0<>0<><>::res://scripts/projectile.gd
-Tower.tscn::PackedScene::-1::1774502454::0::1::::<><><>0<>0<><>::res://scripts/tower.gd
-unit.tscn::PackedScene::3717479759356626503::1775117391::0::1::::<><><>0<>0<><>::uid://l10agkbes1y8::::res://scripts/unit.gd<>uid://ddhkiuay1afwj::::res://scripts/projectile_opponent.gd
-::res://scenes/cards/::1775716766
-allies_projectile.tscn::PackedScene::83106427558207413::1775372703::0::1::::<><><>0<>0<><>::res://scripts/projectile.gd<>res://assets/—Pngtree—vector forward icon_4184777.png
-archer.tscn::PackedScene::5804116519168980175::1775372697::0::1::::<><><>0<>0<><>::res://scripts/unit.gd<>uid://bgi0r3kaf5vl::::res://scenes/cards/allies_projectile.tscn<>res://assets/下載.jpg
-::res://scripts/::1775717107
-card_button.gd::GDScript::3757070202827570481::1775306816::0::1::::<>Button<><>0<>0<><>::
-character_body_2d.gd::GDScript::1027249072892641858::1775356061::0::1::::<>CharacterBody2D<><>0<>0<><>::
-control.gd::GDScript::2799688713684492885::1774502450::0::1::::<>Control<><>0<>0<><>::
-elixir.gd::GDScript::7233934744965538888::1775716161::0::1::::<>Node<><>0<>0<><>::
-elixir_label.gd::GDScript::1286689077803250984::1774502450::0::1::::<>Label<><>0<>0<><>::
-game_manager.gd::GDScript::4406427998217546618::1775717018::0::1::::<>Node<><>0<>0<><>::
-projectile.gd::GDScript::5607775601971197903::1775306270::0::1::::<>Area2D<><>0<>0<><>::
-projectile_opponent.gd::GDScript::7384901734142926889::1774503602::0::1::::<>Area2D<><>0<>0<><>::
-ending_screen.gd::GDScript::1726146283592587517::1775717130::0::1::::<>Control<><>0<>0<><>::
-tower.gd::GDScript::8568181060048626655::1775306814::0::1::::<>Node2D<><>0<>0<><>::
-unit.gd::GDScript::8856143152512213938::1775306801::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://scenes/::1775744665
+ending_screen.tscn::PackedScene::1165316499052136951::1775744416::0::1::::<><><>0<>0<><>::uid://yufm26pfieyn::::res://scripts/ending_screen.gd<>uid://cjmwhv0846in6::::res://assets/ui/panels/04 Border 03.png
+Main.tscn::PackedScene::7255930752538406031::1775744551::0::1::::<><><>0<>0<><>::uid://b31rhwq5tpdpi::::res://scripts/game_manager.gd<>uid://dtu2mud6hhf86::::res://assets/environment/decor_8x8.png<>uid://co5n7bwvy1gmq::::res://assets/environment/plains.png<>uid://dlayypi5c8aj3::::res://assets/ia_600000111.png<>uid://tu7tole1qm3h::::res://scenes/player.tscn<>uid://d2kbgk6v4hfw4::::res://scenes/spawn_ui.tscn<>uid://quque6ani7t8::::res://scenes/ending_screen.tscn
+player.tscn::PackedScene::1376853210593411407::1775742866::0::1::::<><><>0<>0<><>::uid://ovuv3k76j85k::::res://scripts/player_in_battle.gd<>uid://b0oecl585bnd3::::res://assets/ia_600000096.png
+spawn_ui.tscn::PackedScene::9075076612718588805::1775744665::0::1::::<><><>0<>0<><>::uid://dbcf33x48wpky::::res://scripts/spawn_ui.gd<>uid://cjmwhv0846in6::::res://assets/ui/panels/04 Border 03.png
+::res://scenes/structures/::1775744042
+::res://scenes/units/::1775743057
+::res://scenes/units/cards/::1775744026
+alley_archer.tscn::PackedScene::5804116519168980175::1775742423::0::1::::<><><>0<>0<><>::uid://bihsqwn5xh8gq::::res://scripts/archer.gd<>uid://bo8hyc6f5nhf7::::res://assets/下載.jpg
+opponent_archer.tscn::PackedScene::3708546184408210112::1775743057::0::1::::<><><>0<>0<><>::uid://dyf8nbx1yns87::::res://scripts/unit.gd<>uid://ddl3q0br0dao::::res://scenes/units/projectiles/opponents_projectile.tscn<>uid://bo8hyc6f5nhf7::::res://assets/下載.jpg
+::res://scenes/units/projectiles/::1775744463
+allies_projectile.tscn::PackedScene::430443791680835033::1775742113::0::1::::<><><>0<>0<><>::uid://cl5pilb528lsh::::res://scripts/projectile.gd<>uid://dndwibfq23j57::::res://assets/—Pngtree—vector forward icon_4184777.png
+opponents_projectile.tscn::PackedScene::217478432388896594::1775742091::0::1::::<><><>0<>0<><>::uid://dlayypi5c8aj3::::res://assets/ia_600000111.png<>uid://cl5pilb528lsh::::res://scripts/projectile.gd
+::res://scripts/::1775744710
+archer.gd::GDScript::2963504732638325768::1775742321::0::1::::<>CharacterBody2D<><>0<>0<><>::
+card_button.gd::GDScript::3757070202827570481::1775742302::0::1::::<>Button<><>0<>0<><>::
+character_body_2d.gd::GDScript::1027249072892641858::1775742320::0::1::::<>CharacterBody2D<><>0<>0<><>::
+elixir.gd::GDScript::7233934744965538888::1775744870::0::1::::<>Node<><>0<>0<><>::
+ending_screen.gd::GDScript::1726146283592587517::1775742321::0::1::::<>Control<><>0<>0<><>::
+game_manager.gd::GDScript::4406427998217546618::1775745035::0::1::::<>Node2D<><>0<>0<><>::
+opponent_unit.gd::GDScript::8856143152512213938::1775742321::0::1::::<>CharacterBody2D<><>0<>0<><>::
+player_in_battle.gd::GDScript::1027249072892641858::1775742321::0::1::::<>CharacterBody2D<><>0<>0<><>::
+projectile.gd::GDScript::5607775601971197903::1775742321::0::1::::<>Area2D<><>0<>0<><>::
+projectile_opponent.gd::GDScript::7384901734142926889::1775742321::0::1::::<>Area2D<><>0<>0<><>::
+spawn_ui.gd::GDScript::7233934744965538888::1775742307::0::1::::<>Node<><>0<>0<><>::
+tower.gd::GDScript::8568181060048626655::1775742321::0::1::::<>Node2D<><>0<>0<><>::
+unit.gd::GDScript::8856143152512213938::1775742320::0::1::::<>CharacterBody2D<><>0<>0<><>::

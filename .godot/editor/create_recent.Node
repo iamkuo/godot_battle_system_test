@@ -1,3 +1,4 @@
+Control
 Node
 CanvasLayer
 TileMap
@@ -9,5 +10,4 @@ CharacterBody2D
 Timer
 CollisionPolygon2D
 Area2D
-Control
 TileMapLayer
