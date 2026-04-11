@@ -49,7 +49,7 @@ flowchart TD
 
 ## Phase 1 — Single-unit logic ([unit_base.gd](scripts/core/unit_base.gd), [unit.gd](scripts/unit.gd))
 
-### Problems today
+### Problems currently
 
 - **[scripts/unit.gd](scripts/unit.gd)** overrides `_physics_process` without `super`, so base **cooldown tick** and **walk/idle animation** never run for [unit.tscn](scenes/unit.tscn).
 - **Target refresh**: only `unit.gd` calls `find_target()` each frame; `UnitBase` alone never acquires targets.
