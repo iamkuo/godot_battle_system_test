@@ -1,15 +1,54 @@
-[gd_scene load_steps=5 format=3 uid="uid://bs71l34xeqxed"]
+[gd_scene load_steps=7 format=3 uid="uid://bs71l34xeqxed"]
 
-[ext_resource type="Script" uid="uid://l10agkbes1y8" path="res://scripts/unit.gd" id="1_k673f"]
-[ext_resource type="Script" uid="uid://ddhkiuay1afwj" path="res://scripts/projectile_opponent.gd" id="2_1jvru"]
+[ext_resource type="Script" uid="uid://cjs7tcfibk1c6" path="res://scripts/unit.gd" id="1_k673f"]
+[ext_resource type="Texture2D" uid="uid://p3qjl0w1bjot" path="res://assets/images/characters/goblin_player.webp" id="4_goblin_player"]
+
+[sub_resource type="Resource" id="UnitStats_warrior"]
+resource_name = "UnitStats"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r0du0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_03owx"]
 radius = 26.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_warrior_player"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_goblin_player")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_goblin_player")
+}],
+"loop": false,
+"name": &"die",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_goblin_player")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_goblin_player")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
 [node name="unit" type="CharacterBody2D"]
 script = ExtResource("1_k673f")
+stats = SubResource("UnitStats_warrior")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(54, -16)
@@ -18,7 +57,12 @@ shape = SubResource("CircleShape2D_r0du0")
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(54, -16)
 collision_layer = 2
-script = ExtResource("2_1jvru")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_03owx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(54, -16)
+sprite_frames = SubResource("SpriteFrames_warrior_player")
+animation = &"idle"
+autoplay = "idle"

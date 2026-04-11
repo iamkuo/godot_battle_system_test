@@ -1,155 +1,107 @@
 extends Node
 
-# =============================================================================
-# CONSTANTS
-# =============================================================================
+signal game_state_changed(state: String)
 
-# Game Balance
-const ELIXIR_COST: int = 3
+enum Team { PLAYER = 0, OPPONENT = 1 }
+
 const SPAWN_LANES: int = 3
-
-# AI Configuration
 const AI_COOLDOWN_MIN: float = 2.0
 const AI_COOLDOWN_MAX: float = 5.0
-const AI_SPAWN_CHANCE: float = 0.8  # 80% chance to spawn when cooldown is ready
+const AI_SPAWN_CHANCE: float = 1.0
 
-# Teams
-enum Team {PLAYER = 0, OPPONENT = 1}
+var curr: Node
+var spawn_points: Node2D
+var allies_container: Node2D
+var opponents_container: Node2D
+var elixir: Control
 
-# Available Cards
-const ALLIES_AVAILABLE_CARDS: Array[PackedScene] = [preload("res://scenes/units/cards/alley_archer.tscn")]
-
-# =============================================================================
-# NODE REFERENCES
-# =============================================================================
-
-@onready var allies_container: Node2D = get_tree().current_scene.get_node("AlliesContainer")
-@onready var opponents_container: Node2D = get_tree().current_scene.get_node("OpponentsContainer")
-@onready var spawn_points: Node2D = get_tree().current_scene.get_node("SpawnPoints")
-@onready var ui: CanvasLayer = get_tree().current_scene.get_node("UI")
-@onready var elixir: Node = get_tree().current_scene.get_node("UI/SpawnUI")
-@onready var msg_label: Label = get_tree().current_scene.get_node("UI/SpawnUI/MsgLabel")
-
-# =============================================================================
-# AI SETTINGS
-# =============================================================================
+var local_team: Team = Team.PLAYER
+var game_state: String = "idle"
+var unit_stats_registry: Dictionary = {}
 
 var ai_enabled: bool = true
 var ai_cooldown: float = 0.0
-var local_team: Team = Team.PLAYER
 
-# =============================================================================
-# LIFECYCLE METHODS
-# =============================================================================
+const UnitStatsScript = preload("res://scripts/core/unit_stats.gd")
 
 func _ready() -> void:
-	pass
+	curr = get_tree().current_scene
+	if curr:
+		spawn_points = curr.get_node("SpawnPoints")
+		allies_container = curr.get_node_or_null("AlliesContainer")
+		opponents_container = curr.get_node_or_null("EnemiesContainer")
+		elixir = curr.get_node_or_null("UI/SpawnUI")
+	else:
+		print("DEBUG: FAIL - curr is null in _ready!")
+		
+	unit_stats_registry.clear()
+	var dir = DirAccess.open("res://resources/unit_stats/")
+	if dir:
+		var files = dir.get_files()
+		for file_name in files:
+			file_name = file_name.trim_suffix(".remap")
+			if file_name.ends_with(".tres") or file_name.ends_with(".res"):
+				var resource = load("res://resources/unit_stats/" + file_name)
+				if resource and "cost" in resource:
+					unit_stats_registry[file_name.replace(".tres", "")] = resource
+	
+	game_state = "ready"
+	game_state_changed.emit(game_state)
 
 func _process(delta: float) -> void:
 	if not ai_enabled:
 		return
-
+	ai_cooldown -= delta
 	if ai_cooldown > 0:
-		ai_cooldown -= delta
 		return
-
 	ai_cooldown = randf_range(AI_COOLDOWN_MIN, AI_COOLDOWN_MAX)
-	
-	if randf() > AI_SPAWN_CHANCE:
+	if randf() >= AI_SPAWN_CHANCE:
 		return
-
-	var card_index: int = randi() % ALLIES_AVAILABLE_CARDS.size()
-	var lane: int = randi() % SPAWN_LANES
-	var team_prefix: String = "R"
-	var lane_suffix: String = ""
-	
-	match lane:
-		0: lane_suffix = "Top"
-		1: lane_suffix = "Middle"
-		2: lane_suffix = "Bottom"
-		_: lane_suffix = "Middle"
 		
-	var spawn_node_name: String = "%s_%s" % [team_prefix, lane_suffix]
-	var spawn_node: Node2D = spawn_points.get_node(spawn_node_name)
-	var pos: Vector2 = spawn_node.global_position
-
-	spawn_unit(ALLIES_AVAILABLE_CARDS[card_index], pos, Team.OPPONENT, lane, 0)
+	var stats_ids = unit_stats_registry.keys()
+	if stats_ids.is_empty():
+		return
+		
+	var random_stat = unit_stats_registry[stats_ids[randi() % stats_ids.size()]]
+	var lane = randi() % SPAWN_LANES
+	spawn_enemy(random_stat, lane)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("po"):
-		var team_prefix: String = "L"
-		var lane_suffix: String = "Top"
-		var spawn_node_name: String = "%s_%s" % [team_prefix, lane_suffix]
-		var spawn_node: Node2D = spawn_points.get_node(spawn_node_name)
-		spawn_unit(ALLIES_AVAILABLE_CARDS[0], spawn_node.global_position, local_team, 0, ELIXIR_COST)
+		var stats_ids = unit_stats_registry.keys()
+		if not stats_ids.is_empty():
+			spawn_ally(unit_stats_registry[stats_ids[0]], 0)
 
-# =============================================================================
-# GAME LOGIC METHODS
-# =============================================================================
+func get_spawn_point(team: int, lane: int) -> Vector2:
+	var team_enum = Team.PLAYER if team == 0 else Team.OPPONENT
+	var suffix = ["Top", "Middle", "Bottom"][lane] if lane >= 0 and lane < 3 else "Middle"
+	var prefix = "L" if team_enum == Team.PLAYER else "R"
+	if spawn_points and spawn_points.has_node(prefix + "_" + suffix):
+		return spawn_points.get_node(prefix + "_" + suffix).global_position
+	return Vector2.ZERO
 
-func can_spawn(team: Team, cost: int) -> bool:
-	if team == local_team:
-		return elixir.get_current_int() >= cost
-	else:
-		return true
-
-func spawn_unit(packed_scene: PackedScene, pos: Vector2, team: Team, lane: int, cost: int) -> void:
-	if team == local_team and not elixir.try_consume(cost):
+func spawn_ally(stats: UnitStats, lane: int) -> void:
+	if not stats or not allies_container:
 		return
+	if elixir and not elixir.try_consume(stats.cost):
+		return
+	var pos = get_spawn_point(Team.PLAYER, lane)
+	allies_container.spawn_unit(stats, pos, lane)
 
-	var unit: Node = packed_scene.instantiate()
-	unit.global_position = pos
-	unit.team = team
-	unit.lane = lane
+func spawn_enemy(stats: UnitStats, lane: int) -> void:
+	if not stats or not opponents_container:
+		return
+	var pos = get_spawn_point(Team.OPPONENT, lane)
+	opponents_container.spawn_unit(stats, pos, lane)
 
-	# Add to appropriate container based on team
-	var container: Node2D = allies_container if team == local_team else opponents_container
-	container.add_child(unit)
-
-	unit.add_to_group("units")
-
-	# Flip sprite for opposing team
-	var sprite: Sprite2D = unit.get_node("Sprite2D")
-	sprite.flip_h = (team == Team.OPPONENT)
-
-# =============================================================================
-# PUBLIC API
-# =============================================================================
-
-func toggle_ai() -> void:
-	ai_enabled = not ai_enabled
-	print("AI %s" % ("enabled" if ai_enabled else "disabled"))
-
-func set_ai_enabled(enabled: bool) -> void:
-	ai_enabled = enabled
-	print("AI %s" % ("enabled" if ai_enabled else "disabled"))
-
-func get_team_name(team: Team) -> String:
-	match team:
-		Team.PLAYER: return "Player"
-		Team.OPPONENT: return "Opponent"
-		_: return "Unknown"
-
-func is_valid_lane(lane: int) -> bool:
-	return lane >= 0 and lane < SPAWN_LANES
-
-func get_spawn_point(team: Team, lane: int) -> Vector2:
-	var team_prefix = "L" if team == Team.PLAYER else "R"
-	var lane_suffix = ""
-	match lane:
-		0: lane_suffix = "Top"
-		1: lane_suffix = "Middle"
-		2: lane_suffix = "Bottom"
-		_: lane_suffix = "Middle"
-	var spawn_node_name = "%s_%s" % [team_prefix, lane_suffix]
-	var spawn_node = spawn_points.get_node(spawn_node_name)
-	return spawn_node.global_position
-
-# =============================================================================
-# EVENT HANDLERS
-# =============================================================================
+func can_spawn(team: int, cost: int) -> bool:
+	if team == 0 and elixir:
+		return elixir.get_current_int() >= cost
+	return true
 
 func on_tower_destroyed(tower: Node) -> void:
-	var winner: Team = Team.PLAYER if tower.team == Team.OPPONENT else Team.OPPONENT
-	msg_label.text = "Team %d won!" % winner
+	var win_team = Team.PLAYER if tower.team == Team.OPPONENT else Team.OPPONENT
+	MessageManager.show_message("Team %d won!" % win_team, 5.0)
+	game_state = "game_over"
+	game_state_changed.emit(game_state)
 	get_tree().paused = true

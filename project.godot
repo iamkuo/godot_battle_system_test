@@ -16,6 +16,9 @@ run/main_scene="uid://dbm3ecaqtfqdr"
 config/features=PackedStringArray("4.5")
 name="ClashPrototype"
 
+[autoload]
+
+MessageManager="*res://scenes/ui/message_manager.tscn"
 [input]
 
 ui_left={

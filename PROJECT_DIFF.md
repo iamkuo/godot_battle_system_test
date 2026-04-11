@@ -32,6 +32,8 @@ This document compares `battle_system_test` with `godot-battle-system-test-main-
 
 **Key Fix Applied:** Units now move towards lane goal when no target is found.
 
+**Status:** ✅ Fixed - UnitBase class in scripts/core/ handles this properly.
+
 ### opponent_unit.gd (reference only)
 - Exists in reference project but NOT in battle_system_test
 - Contains proper movement logic (fallback to lane goal)
@@ -51,7 +53,7 @@ This document compares `battle_system_test` with `godot-battle-system-test-main-
 | `control.gd` | Missing | Exists (elixir system as Control) |
 | `elixir.gd` | Missing (uses `spawn_ui.gd`) | Exists |
 | `elixir_label.gd` | Missing | Exists |
-| `card_button.gd` | Missing | Exists (button for spawning) |
+| `card_button.gd` | ✅ Exists | Exists (button for spawning) |
 | `character_body_2d.gd` | Exists (player movement) | Exists (same) |
 
 ---
@@ -102,6 +104,11 @@ Only import if specific features are required:
 
 - Unit movement when no target (archer.gd:26-50)
 - Created scripts/unit.gd (was missing, now exists)
+- Created scripts/core/unit_base.gd (abstract base class)
+- Created scripts/core/unit_stats.gd (custom resource)
+- Created scripts/core/behavior_pattern.gd (resource for behavior patterns)
+- Type annotations added to all functions
+- Scene structure organized (scenes/units/)
 
 ---
 
@@ -114,9 +121,10 @@ Only import if specific features are required:
 ### Phase 1: Keep battle_system_test as Base (Recommended)
 
 battle_system_test has better code quality:
-- Type annotations on all functions
-- Fixed unit movement (moves to lane goal when no target)
-- Better organized scene structure (`scenes/units/cards/`)
+- Type annotations on all functions ✅
+- Fixed unit movement (moves to lane goal when no target) ✅
+- Better organized scene structure (`scenes/units/`) ✅
+- Unit system foundation (UnitBase, UnitStats, BehaviorPattern) ✅
 
 **Action:** Keep battle_system_test structure, only import missing features.
 
@@ -173,10 +181,13 @@ Key decisions:
 [ ] Keep battle_system_test as main project
 [ ] Import card_button.gd if UI card buttons needed
 [ ] Update scene preloads in game_manager.gd if using reference scenes
-[ ] Keep type annotations in battle_system_test scripts
-[ ] Keep fixed unit movement (archer.gd:26-50)
-[ ] Keep scripts/unit.gd (already created)
-[ ] Update PROJECT_ANALYSIS.md with new structure
+[ ] Keep type annotations in battle_system_test scripts ✅
+[ ] Keep fixed unit movement (archer.gd:26-50) ✅
+[ ] Keep scripts/unit.gd (already created) ✅
+[ ] Keep scripts/core/unit_base.gd ✅
+[ ] Keep scripts/core/unit_stats.gd ✅
+[ ] Keep scripts/core/behavior_pattern.gd ✅
+[ ] Update PROJECT_ANALYSIS.md with new structure ✅
 ```
 
 ### Risk Assessment

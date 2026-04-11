@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=4 uid="uid://dbm3ecaqtfqdr"]
+[gd_scene load_steps=14 format=4 uid="uid://dbm3ecaqtfqdr"]
 
 [ext_resource type="Script" uid="uid://b31rhwq5tpdpi" path="res://scripts/game_manager.gd" id="1_nxtc6"]
-[ext_resource type="Texture2D" uid="uid://dtu2mud6hhf86" path="res://assets/environment/decor_8x8.png" id="1_vcsgt"]
-[ext_resource type="Texture2D" uid="uid://co5n7bwvy1gmq" path="res://assets/environment/plains.png" id="2_vcsgt"]
+[ext_resource type="Texture2D" uid="uid://dtu2mud6hhf86" path="res://assets/images/environment/landscape/decor_8x8.png" id="1_vcsgt"]
+[ext_resource type="Texture2D" uid="uid://co5n7bwvy1gmq" path="res://assets/images/environment/landscape/plains.png" id="2_vcsgt"]
 [ext_resource type="Texture2D" uid="uid://dlayypi5c8aj3" path="res://assets/ia_600000111.png" id="3_vcsgt"]
 [ext_resource type="PackedScene" uid="uid://tu7tole1qm3h" path="res://scenes/player.tscn" id="4_rarhs"]
 [ext_resource type="PackedScene" uid="uid://d2kbgk6v4hfw4" path="res://scenes/spawn_ui.tscn" id="6_nxtc6"]
 [ext_resource type="PackedScene" uid="uid://quque6ani7t8" path="res://scenes/ending_screen.tscn" id="7_jlsqs"]
+[ext_resource type="Script" uid="uid://dpb3nwyuow5ma" path="res://scripts/allies_manager.gd" id="script_allies"]
+[ext_resource type="Script" uid="uid://htm4iimjtjhn" path="res://scripts/enemies_manager.gd" id="script_enemies"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlsqs"]
 texture = ExtResource("1_vcsgt")
@@ -155,12 +157,10 @@ position = Vector2(970, 329)
 position = Vector2(965, 540)
 
 [node name="AlliesContainer" type="Node2D" parent="."]
+script = ExtResource("script_allies")
 
-[node name="OpponentsContainer" type="Node2D" parent="."]
-
-[node name="AITimer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
+[node name="EnemiesContainer" type="Node2D" parent="."]
+script = ExtResource("script_enemies")
 
 [node name="Player" parent="." instance=ExtResource("4_rarhs")]
 position = Vector2(584, 328)
@@ -169,7 +169,7 @@ position = Vector2(584, 328)
 
 [node name="SpawnUI" parent="UI" instance=ExtResource("6_nxtc6")]
 anchors_preset = -1
-anchor_left = 0.058
+anchor_left = 0.05
 anchor_top = 0.5
 anchor_right = 0.95
 

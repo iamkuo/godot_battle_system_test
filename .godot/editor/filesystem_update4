@@ -1,7 +1,9 @@
 res://scripts/game_manager.gd
 res://scripts/spawn_ui.gd
-res://scenes/spawn_ui.tscn
-res://scripts/archer.gd
+res://scenes/unit.tscn
+res://scripts/core/unit_base.gd
+res://scripts/ui/card.gd
 res://scenes/Main.tscn
-res://scripts/tower.gd
-res://scripts/card_button.gd
+res://scripts/core/message_manager.gd
+res://scripts/enemies_manager.gd
+res://scripts/allies_manager.gd
