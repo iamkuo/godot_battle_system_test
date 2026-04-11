@@ -186,7 +186,7 @@ func _move_towards(target_pos: Vector2, delta: float):
 		if sprite:
 			sprite.flip_h = dir.x < 0
 	move_and_slide()
-
 func _get_lane_goal_pos() -> Vector2:
 	var x = 1400 if team == 0 else 200
 	return Vector2(x, global_position.y)
+
