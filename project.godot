@@ -18,7 +18,8 @@ name="ClashPrototype"
 
 [autoload]
 
-MessageManager="*res://scenes/ui/message_manager.tscn"
+MessageManager="*res://important_scripts/ui/message_manager.gd"
+
 [input]
 
 ui_left={

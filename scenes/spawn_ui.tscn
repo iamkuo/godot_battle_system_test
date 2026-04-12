@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d2kbgk6v4hfw4"]
 
-[ext_resource type="Script" uid="uid://dbcf33x48wpky" path="res://scripts/spawn_ui.gd" id="1_c3msa"]
-[ext_resource type="Texture2D" uid="uid://cjmwhv0846in6" path="res://assets/ui/panels/04 Border 03.png" id="2_73l6q"]
+[ext_resource type="Script" uid="uid://y3dw53edymkq" path="res://other_scripts/spawn_ui.gd" id="1_c3msa"]
+[ext_resource type="Texture2D" uid="uid://cjmwhv0846in6" path="res://assets/images/ui/panels/04 Border 03.png" id="2_73l6q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_elixir_bar"]
 bg_color = Color(0.176471, 0.360784, 0.976471, 1)

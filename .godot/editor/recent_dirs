@@ -1,6 +1,6 @@
 res://scenes
-res://scripts
-res://assets/environment
-res://assets/ui/panels
+res://important_scripts/ui
+res://important_scripts
+res://other_scripts
 res://assets
 res://

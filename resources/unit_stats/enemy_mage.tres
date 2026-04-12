@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://enemy_mage_stats"]
+
+[ext_resource type="Script" uid="uid://d2pre0q0hthyw" path="res://important_scripts/unit/unit_stats.gd" id="1_stats"]
+[ext_resource type="PackedScene" uid="uid://opponents_projectile_scene" path="res://scenes/units/projectiles/opponents_projectile.tscn" id="2_projectile"]
+
+[resource]
+resource_name = "EnemyMageStats"
+script = ExtResource("1_stats")
+unit_id = "enemy_mage"
+health = 100
+defense = 0
+cost = 4
+team = 1
+attack_damage = 35
+attack_speed = 0.8
+attack_type = 1
+projectile_scene = ExtResource("2_projectile")
+move_speed = 100.0
+view_distance = 350.0
+attack_distance = 300.0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bs71l34xeqxed"]
 
-[ext_resource type="Script" uid="uid://cjs7tcfibk1c6" path="res://scripts/unit.gd" id="1_k673f"]
+[ext_resource type="Script" uid="uid://u2ul061i3w7x" path="res://important_scripts/unit/unit.gd" id="1_k673f"]
 [ext_resource type="Texture2D" uid="uid://p3qjl0w1bjot" path="res://assets/images/characters/goblin_player.webp" id="4_goblin_player"]
 
 [sub_resource type="Resource" id="UnitStats_warrior"]
