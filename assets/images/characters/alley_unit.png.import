@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cllqhhnbalfxs"
-path="res://.godot/imported/ia_600000054.png-aba1c318d301a23d67be007acdfe9f3f.ctex"
+uid="uid://b2m0ajtj32813"
+path="res://.godot/imported/alley_unit.png-56c54703968170aa688b58f8282d2954.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ia_600000054.png"
-dest_files=["res://.godot/imported/ia_600000054.png-aba1c318d301a23d67be007acdfe9f3f.ctex"]
+source_file="res://assets/alley_unit.png"
+dest_files=["res://.godot/imported/alley_unit.png-56c54703968170aa688b58f8282d2954.ctex"]
 
 [params]
 

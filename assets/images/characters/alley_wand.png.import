@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://twnar4lsfqsd"
-path="res://.godot/imported/ia_600000044.png-d6cb5008dd7e6cfb1d4f07a0a23c317e.ctex"
+uid="uid://cwf34dq5vxovy"
+path="res://.godot/imported/alley_wand.png-b6fb81586ad88fff6cedad7f50d31acc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ia_600000044.png"
-dest_files=["res://.godot/imported/ia_600000044.png-d6cb5008dd7e6cfb1d4f07a0a23c317e.ctex"]
+source_file="res://assets/alley_wand.png"
+dest_files=["res://.godot/imported/alley_wand.png-b6fb81586ad88fff6cedad7f50d31acc.ctex"]
 
 [params]
 

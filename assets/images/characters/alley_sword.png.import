@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2m0ajtj32813"
-path="res://.godot/imported/ia_600000034.png-8bdaca61bbfdac5cf5a2fab7a5f20d89.ctex"
+uid="uid://bqh7e0lnp0tnq"
+path="res://.godot/imported/alley_sword.png-0808ce2ec5ed31e32d913570860f1c7f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ia_600000034.png"
-dest_files=["res://.godot/imported/ia_600000034.png-8bdaca61bbfdac5cf5a2fab7a5f20d89.ctex"]
+source_file="res://assets/alley_sword.png"
+dest_files=["res://.godot/imported/alley_sword.png-0808ce2ec5ed31e32d913570860f1c7f.ctex"]
 
 [params]
 

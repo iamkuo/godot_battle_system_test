@@ -13,3 +13,5 @@ res://important_scripts/unit/allies_manager.gd
 res://important_scripts/unit/enemies_manager.gd
 res://scenes/Main.tscn
 res://important_scripts/ui/message_manager.gd
+res://scenes/ui/message_ui.tscn
+res://scenes/units/projectiles/opponents_projectile.tscn

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://gerl1nl20c62"]
 
 [ext_resource type="Script" uid="uid://dgxty4bxgyunr" path="res://important_scripts/projectile.gd" id="1_4c6dc"]
-[ext_resource type="Texture2D" uid="uid://dndwibfq23j57" path="res://assets/—Pngtree—vector forward icon_4184777.png" id="2_3s3gp"]
+[ext_resource type="Texture2D" uid="uid://dndwibfq23j57" path="res://assets/images/projectiles/forward_icon.png" id="2_3s3gp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_03owx"]
 radius = 26.0
