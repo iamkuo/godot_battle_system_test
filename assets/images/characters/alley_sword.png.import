@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqh7e0lnp0tnq"
-path="res://.godot/imported/alley_sword.png-0808ce2ec5ed31e32d913570860f1c7f.ctex"
+path="res://.godot/imported/alley_sword.png-818af2c35209975c2bc9eb5320218759.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/alley_sword.png"
-dest_files=["res://.godot/imported/alley_sword.png-0808ce2ec5ed31e32d913570860f1c7f.ctex"]
+source_file="res://assets/images/characters/alley_sword.png"
+dest_files=["res://.godot/imported/alley_sword.png-818af2c35209975c2bc9eb5320218759.ctex"]
 
 [params]
 

@@ -15,3 +15,5 @@ res://scenes/Main.tscn
 res://important_scripts/ui/message_manager.gd
 res://scenes/ui/message_ui.tscn
 res://scenes/units/projectiles/opponents_projectile.tscn
+res://scenes/units/projectiles/allies_projectile.tscn
+res://scenes/unit.tscn

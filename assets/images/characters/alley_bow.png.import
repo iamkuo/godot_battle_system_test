@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cllqhhnbalfxs"
-path="res://.godot/imported/alley_bow.png-c3a9c090d91f2e3d77c7ab62dd98643d.ctex"
+path="res://.godot/imported/alley_bow.png-ab4a87c0b9c02d3e4ec1597e91f9449c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/alley_bow.png"
-dest_files=["res://.godot/imported/alley_bow.png-c3a9c090d91f2e3d77c7ab62dd98643d.ctex"]
+source_file="res://assets/images/characters/alley_bow.png"
+dest_files=["res://.godot/imported/alley_bow.png-ab4a87c0b9c02d3e4ec1597e91f9449c.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dadfyge5xp0fq"
-path="res://.godot/imported/enemy_wand.png-710ec681dd5ee3f5ad45790052b04fcb.ctex"
+path="res://.godot/imported/enemy_wand.png-4e1c5381d1b795cbc3b45c2dfcc9ab0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_wand.png"
-dest_files=["res://.godot/imported/enemy_wand.png-710ec681dd5ee3f5ad45790052b04fcb.ctex"]
+source_file="res://assets/images/characters/enemy_wand.png"
+dest_files=["res://.godot/imported/enemy_wand.png-4e1c5381d1b795cbc3b45c2dfcc9ab0a.ctex"]
 
 [params]
 

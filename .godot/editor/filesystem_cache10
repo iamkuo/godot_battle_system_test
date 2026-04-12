@@ -4,16 +4,7 @@ problems&and_expect_moves.txt::TextFile::-1::1774512136::0::1::::<><><>0<>0<><>:
 PROJECT_DIFF.md::TextFile::-1::1775823412::0::1::::<><><>0<>0<><>::
 README.md::TextFile::-1::1775977623::0::1::::<><><>0<>0<><>::
 unify_unit_sprite_animation_20f903d0.plan.md::TextFile::-1::1775976726::0::1::::<><><>0<>0<><>::
-::res://assets/::1775980124
-alley_bow.png::CompressedTexture2D::5568611162932596332::1775314230::1775979792::1::::<><><>0<>0<>0b78b18c1ecc873fcfa260c2e8b0cc60<>res://.godot/imported/alley_bow.png-c3a9c090d91f2e3d77c7ab62dd98643d.ctex::
-alley_sword.png::CompressedTexture2D::3525844243812496814::1775314230::1775979804::1::::<><><>0<>0<>b375fb5d236275c18d728f17a9d856b5<>res://.godot/imported/alley_sword.png-0808ce2ec5ed31e32d913570860f1c7f.ctex::
-alley_unit.png::CompressedTexture2D::4307810422296726028::1775314230::1775979722::1::::<><><>0<>0<>4984ba50579d41612d825e715886994e<>res://.godot/imported/alley_unit.png-56c54703968170aa688b58f8282d2954.ctex::
-alley_wand.png::CompressedTexture2D::6329069863692884194::1775314230::1775979787::1::::<><><>0<>0<>6066507c323a646de0f50538004b7ea6<>res://.godot/imported/alley_wand.png-b6fb81586ad88fff6cedad7f50d31acc.ctex::
-enemy_bow.png::CompressedTexture2D::1379794598838234255::1775314230::1775979752::1::::<><><>0<>0<>c1a3918317b3e61aaaa1a057039c9388<>res://.godot/imported/enemy_bow.png-83c8967a9e1f5198a781a580843686cd.ctex::
-enemy_wand.png::CompressedTexture2D::7165801951072767942::1775314230::1775979777::1::::<><><>0<>0<>53e0b39b60d614f9e4c919f9b4d3750f<>res://.godot/imported/enemy_wand.png-710ec681dd5ee3f5ad45790052b04fcb.ctex::
-green.png::CompressedTexture2D::5623107280767209527::1774502454::1775980127::1::::<><><>0<>0<>c1cb318582c03689f0ac5361df14fd65<>res://.godot/imported/green.png-23da064ef749b17ee836f545d262d73c.ctex::
-npc.png::CompressedTexture2D::6134452397885147327::1775314230::1775979815::1::::<><><>0<>0<>b4650e83a2e7cc31fbff7c424b59e60d<>res://.godot/imported/npc.png-35503085f0b69df6cc24e06d77b4ef8b.ctex::
-—Pngtree—vector forward icon_4184777.png::CompressedTexture2D::8079260272839536912::1774504052::1775314313::1::::<><><>0<>0<>f3bf2ad000d482d49f78deeda3c224fe<>res://.godot/imported/—Pngtree—vector forward icon_4184777.png-36f58fe9a616d4923b53697a12a13914.ctex::
+::res://assets/::1775980330
 ::res://assets/animations/::1775826566
 ::res://assets/audio/::1775826355
 ::res://assets/audio/music/::1775826749
@@ -29,22 +20,29 @@ tap.wav::AudioStreamWAV::8226089351593273047::1758173221::1775826750::1::::<><><
 Cubic_11.ttf::FontFile::8779400816402685228::1764163456::1775826749::1::::<><><>0<>0<>5a261e7210780f9222edf1c181ccd218<>res://.godot/imported/Cubic_11.ttf-bf979df690ab27776663a1e0d882a45e.fontdata::
 PixelOperator8-Bold.ttf::FontFile::8359190103906962748::1758173221::1775826749::1::::<><><>0<>0<>9a22814eeb4471f0937f38055bcd8433<>res://.godot/imported/PixelOperator8-Bold.ttf-74faf550739674ad3170f08e646e0614.fontdata::
 PixelOperator8.ttf::FontFile::8373938568850577979::1758173221::1775826749::1::::<><><>0<>0<>489b07697c56bf6db5022e6c2a38bb92<>res://.godot/imported/PixelOperator8.ttf-6f9f01766aff16f52046b880ffb8d367.fontdata::
-::res://assets/images/::1775826368
+::res://assets/images/::1775980164
 ::res://assets/images/backgrounds/::1775826750
 main_menu_bg.png::CompressedTexture2D::4827900730198138970::1763617326::1775826750::1::::<><><>0<>0<>8abf9e5344571a256a85a1ac299fe943<>res://.godot/imported/main_menu_bg.png-deaf29e82254f2bb5f09e9a85f32e019.ctex::
-::res://assets/images/characters/::1775980124
+::res://assets/images/characters/::1775980330
+alley_bow.png::CompressedTexture2D::5568611162932596332::1775314230::1775980415::1::::<><><>0<>0<>931dccf289777b375141b7eb0dfe4938<>res://.godot/imported/alley_bow.png-ab4a87c0b9c02d3e4ec1597e91f9449c.ctex::
+alley_sword.png::CompressedTexture2D::3525844243812496814::1775314230::1775980415::1::::<><><>0<>0<>b6ae40e81d1312916298a4ec78fb47ee<>res://.godot/imported/alley_sword.png-818af2c35209975c2bc9eb5320218759.ctex::
+alley_unit.png::CompressedTexture2D::4307810422296726028::1775314230::1775980415::1::::<><><>0<>0<>624238efdffc0845b602a218ab613c2c<>res://.godot/imported/alley_unit.png-184ecd19c6c3becdf4e956cf32a9c4c8.ctex::
+alley_wand.png::CompressedTexture2D::6329069863692884194::1775314230::1775980415::1::::<><><>0<>0<>95441f60e3e9df810d8766fbb4b71c76<>res://.godot/imported/alley_wand.png-e8af723a9203ebc62dc464876dfce4de.ctex::
+enemy_bow.png::CompressedTexture2D::1379794598838234255::1775314230::1775980415::1::::<><><>0<>0<>8c0d8e668de2fe3fb97619e7a5867c27<>res://.godot/imported/enemy_bow.png-27163ed55af9aafbeea91fb71de2bccf.ctex::
+enemy_wand.png::CompressedTexture2D::7165801951072767942::1775314230::1775980415::1::::<><><>0<>0<>b47312e41564985c86b252c5efb4c04a<>res://.godot/imported/enemy_wand.png-4e1c5381d1b795cbc3b45c2dfcc9ab0a.ctex::
 goblin_bow.png::CompressedTexture2D::4441130592174797523::1775711752::1775826750::1::::<><><>0<>0<>b1cfbdc46b4c6afe4a3029cda461e7a8<>res://.godot/imported/goblin_bow.png-52ebefd348dabca66de5d9c520d4dc55.ctex::
 goblin_player.webp::CompressedTexture2D::1111623393124903227::1775711768::1775826749::1::::<><><>0<>0<>34f9a9297cdb395bb5792842c02554e6<>res://.godot/imported/goblin_player.webp-a8f9efd0eb99972da96a318a148b2f51.ctex::
 goblin_staff.png::CompressedTexture2D::7415272136580668854::1775711748::1775826749::1::::<><><>0<>0<>dee4ea9769da73b6cd06bab86a49b128<>res://.godot/imported/goblin_staff.png-246ac18b8b90d33ec9142bf197442532.ctex::
 goblin_summon.png::CompressedTexture2D::2876565897523671050::1775711727::1775826749::1::::<><><>0<>0<>d46b253019f18deb453349e7cbcdd15a<>res://.godot/imported/goblin_summon.png-cf4ef9626d0d0dee9315102436479714.ctex::
 house.png::CompressedTexture2D::3222949662357649791::1775711773::1775826750::1::::<><><>0<>0<>d6e91c499b1f1db5ad9caa22e9dd05ca<>res://.godot/imported/house.png-2511eda8154f5ce5e67cb01fca2c1a06.ctex::
+npc.png::CompressedTexture2D::6134452397885147327::1775314230::1775980415::1::::<><><>0<>0<>4715a8c0b3c8e9f2e3d08c1022cd820d<>res://.godot/imported/npc.png-314bfc1c9524e77890a150125a79bcd0.ctex::
 npc.webp::CompressedTexture2D::2885647894550021793::1775711762::1775826749::1::::<><><>0<>0<>f709849d86913436c428c61bc32a73a2<>res://.godot/imported/npc.webp-c55ecee0d3a31b3bea0d7642dec830b9.ctex::
 player.png::CompressedTexture2D::4170290128400120766::1775314230::1775980127::1::::<><><>0<>0<>2a3762f761dbc2a61e91de5cdc20c59f<>res://.godot/imported/player.png-d8b4b792b995ebca42fddfbbe8d316ad.ctex::
 slime.png::CompressedTexture2D::7811062543200307715::1715086386::1775826749::1::::<><><>0<>0<>a0d6f77961b373860d99eb04e7b1f8c7<>res://.godot/imported/slime.png-d39b191abf4a5dab3a4d0591bf443ddb.ctex::
 slime_green.png::CompressedTexture2D::342214605697844006::1758173221::1775826749::1::::<><><>0<>0<>9ed7333b3151bc403ab43dc33358d2fc<>res://.godot/imported/slime_green.png-63f9415ab022a99896bbd57a76650a1f.ctex::
 slime_purple.png::CompressedTexture2D::47386170758291277::1758173221::1775826749::1::::<><><>0<>0<>933469638088fb7345aa234b0b2e7537<>res://.godot/imported/slime_purple.png-78b91f6c31c28b44a03f325194c14bed.ctex::
 world_tree.png::CompressedTexture2D::3710930829888842341::1775711872::1775826750::1::::<><><>0<>0<>8b429d6a999da4b69d8e98031449dff6<>res://.godot/imported/world_tree.png-d351a20d7a7e211b879b977597a28cee.ctex::
-::res://assets/images/environment/::1775980109
+::res://assets/images/environment/::1775980127
 house.png::CompressedTexture2D::7932840199553492278::1775356932::1775980127::1::::<><><>0<>0<>0102f99bfc2366f681ea9bf50688277e<>res://.godot/imported/house.png-291235b24156e0e829ffd34049978c9e.ctex::
 ::res://assets/images/environment/floors/::1775826749
 0_Template_Tileset1_A.png::CompressedTexture2D::4829743313479593970::1747851736::1775826749::1::::<><><>0<>0<>e311eea5fe0708aa328b7e7f82e72fb8<>res://.godot/imported/0_Template_Tileset1_A.png-e3871233726193efd2908fc2f388fa4c.ctex::
@@ -130,7 +128,10 @@ Character1_orange_walkUp_v1.0.png::CompressedTexture2D::6435603689479560055::174
 5.png::CompressedTexture2D::116604634192731820::1747851736::1775826749::1::::<><><>0<>0<>115e5e920a4fcfe6cccad2f4b10f9eaa<>res://.godot/imported/5.png-688ba87aadde7384df37487b00acf528.ctex::
 ::res://assets/images/particles/::1775826749
 dust_particles_01.png::CompressedTexture2D::6827787736293490409::1715086386::1775826749::1::::<><><>0<>0<>dd3303f86377e1ca1016f464880709aa<>res://.godot/imported/dust_particles_01.png-22fa209d87a97dad4871fb82bb79244e.ctex::
-::res://assets/images/ui/::1775826368
+::res://assets/images/projectiles/::1775980171
+forward_icon.png::CompressedTexture2D::8079260272839536912::1774504052::1775980415::1::::<><><>0<>0<>51ae5f15898384e6ac2473cf90d45a06<>res://.godot/imported/forward_icon.png-fe3a79cc5c8b81935552f0e6e02fb05c.ctex::
+::res://assets/images/ui/::1775980329
+green.png::CompressedTexture2D::5623107280767209527::1774502454::1775980415::1::::<><><>0<>0<>fa4a7a946c0d03bb651f7fa4107a824d<>res://.godot/imported/green.png-a84100937d7e86ff8c68657227f25c60.ctex::
 ::res://assets/images/ui/elements/::1775826749
 Action_panel.png::CompressedTexture2D::603212966214591712::1759938544::1775826749::1::::<><><>0<>0<>eebf4339f1c260f51654fb4a4fa888b7<>res://.godot/imported/Action_panel.png-382422abb308c02cecfdf8f0e8fee03d.ctex::
 Buttons.png::CompressedTexture2D::7744476355153841088::1759954375::1775826749::1::::<><><>0<>0<>945115cd3ac5ae29d59a2812af1b2a5a<>res://.godot/imported/Buttons.png-3813e27248df66d35d418657c907db88.ctex::
@@ -235,14 +236,14 @@ warrior.tres::Resource::-1::1775976939::0::1::::<><><>0<>0<><>::uid://d2pre0q0ht
 ::res://scenes/::1775979827
 ending_screen.tscn::PackedScene::1165316499052136951::1775968426::0::1::::<><><>0<>0<><>::uid://c8ix4311atj3g::::res://important_scripts/ui/ending_screen.gd<>uid://cjmwhv0846in6::::res://assets/images/ui/panels/04 Border 03.png
 Main.tscn::PackedScene::7255930752538406031::1775980112::0::1::::<><><>0<>0<><>::uid://boel1mem23w0d::::res://important_scripts/battle_manager.gd<>uid://dtu2mud6hhf86::::res://assets/images/environment/landscape/decor_8x8.png<>uid://co5n7bwvy1gmq::::res://assets/images/environment/landscape/plains.png<>uid://dlayypi5c8aj3::::res://assets/house.png<>uid://tu7tole1qm3h::::res://scenes/player.tscn<>uid://d2kbgk6v4hfw4::::res://scenes/spawn_ui.tscn<>uid://quque6ani7t8::::res://scenes/ending_screen.tscn<>uid://bv8xk2m4n5p6q::::res://scenes/ui/message_ui.tscn<>uid://cl7hmeq86ar3y::::res://scenes/Tower.tscn<>uid://bds85iit5xw5t::::res://important_scripts/tower/tower_manager.gd<>uid://dlauk8cqn3cil::::res://important_scripts/unit/allies_manager.gd<>uid://d0p2o6ooadf65::::res://important_scripts/unit/enemies_manager.gd
-player.tscn::PackedScene::1376853210593411407::1775979823::0::1::::<><><>0<>0<><>::uid://n543mygrfwje::::res://important_scripts/player_in_battle.gd<>uid://b0oecl585bnd3::::res://assets/player.png
+player.tscn::PackedScene::1376853210593411407::1775980128::0::1::::<><><>0<>0<><>::uid://n543mygrfwje::::res://important_scripts/player_in_battle.gd<>uid://b0oecl585bnd3::::res://assets/player.png
 spawn_ui.tscn::PackedScene::9075076612718588805::1775968360::0::1::::<><><>0<>0<><>::uid://y3dw53edymkq::::res://other_scripts/spawn_ui.gd<>uid://cjmwhv0846in6::::res://assets/images/ui/panels/04 Border 03.png
-Tower.tscn::PackedScene::5611425420361782436::1775980112::0::1::::<><><>0<>0<><>::uid://bc57y06owrfa::::res://important_scripts/tower/tower_base.gd<>uid://dlayypi5c8aj3::::res://assets/house.png
+Tower.tscn::PackedScene::5611425420361782436::1775980112::0::1::::<><><>0<>0<><>::uid://bc57y06owrfa::::res://important_scripts/tower/tower_base.gd<>uid://dlayypi5c8aj3::::res://assets/images/environment/house.png
 unit.tscn::PackedScene::3717479759356626503::1775968749::0::1::::<><><>0<>0<><>::uid://u2ul061i3w7x::::res://important_scripts/unit/unit.gd<>uid://p3qjl0w1bjot::::res://assets/images/characters/goblin_player.webp
 ::res://scenes/ui/::1775979872
 card.tscn::PackedScene::-1::1775827436::0::1::::<><><>0<>0<><>::uid://fbve7n5dsau::::res://scripts/ui/card.gd
 message_ui.tscn::PackedScene::3929926652752735434::1775979872::0::1::::<><><>0<>0<><>::
 ::res://scenes/units/::1775827017
 ::res://scenes/units/projectiles/::1775979827
-allies_projectile.tscn::PackedScene::430443791680835033::1775968278::0::1::::<><><>0<>0<><>::uid://dgxty4bxgyunr::::res://important_scripts/projectile.gd<>uid://dndwibfq23j57::::res://assets/—Pngtree—vector forward icon_4184777.png
-opponents_projectile.tscn::PackedScene::217478432388896594::1775980111::0::1::::<><><>0<>0<><>::uid://dgxty4bxgyunr::::res://important_scripts/projectile.gd<>uid://dlayypi5c8aj3::::res://assets/house.png
+allies_projectile.tscn::PackedScene::430443791680835033::1775980176::0::1::::<><><>0<>0<><>::uid://dgxty4bxgyunr::::res://important_scripts/projectile.gd<>uid://dndwibfq23j57::::res://assets/—Pngtree—vector forward icon_4184777.png
+opponents_projectile.tscn::PackedScene::217478432388896594::1775980111::0::1::::<><><>0<>0<><>::uid://dgxty4bxgyunr::::res://important_scripts/projectile.gd<>uid://dlayypi5c8aj3::::res://assets/images/environment/house.png
