@@ -1,5 +1,6 @@
 extends Node
 
+@onready var player_spawn_point = get_tree().current_scene.get_node("Player/UnitSpawnPoint")
 signal game_state_changed(state: String)
 
 enum Team { PLAYER = 0, OPPONENT = 1 }
@@ -70,13 +71,22 @@ func _input(event: InputEvent) -> void:
 		if not stats_ids.is_empty():
 			spawn_ally(unit_stats_registry[stats_ids[0]], 0)
 
-func get_spawn_point(team: int, lane: int) -> Vector2:
-	var team_enum = Team.PLAYER if team == 0 else Team.OPPONENT
+func _get_fixed_opponent_spawn_point(lane: int) -> Vector2:
+	var team_enum =  Team.OPPONENT
 	var suffix = ["Top", "Middle", "Bottom"][lane] if lane >= 0 and lane < 3 else "Middle"
 	var prefix = "L" if team_enum == Team.PLAYER else "R"
 	if spawn_points and spawn_points.has_node(prefix + "_" + suffix):
 		return spawn_points.get_node(prefix + "_" + suffix).global_position
 	return Vector2.ZERO
+
+func get_spawn_point(team: int, _lane: int) -> Vector2:
+	if team == 0:
+		var player = get_tree().get_first_node_in_group("player")
+		
+		if is_instance_valid(player):
+			var marker = player.get_node_or_null("Player/UnitSpawnPoint")
+			return player.global_position + Vector2(30, 0)
+	return _get_fixed_opponent_spawn_point(_lane)
 
 func spawn_ally(stats: UnitStats, lane: int) -> void:
 	if not stats or not allies_container:
