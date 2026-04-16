@@ -1,8 +1,7 @@
-[gd_scene format=3 uid="uid://cw1xa547r3cf1"]
+[gd_scene load_steps=7 format=3 uid="uid://cw1xa547r3cf1"]
 
 [ext_resource type="Script" uid="uid://fbve7n5dsau" path="res://important_scripts/ui/card.gd" id="1_card"]
-[ext_resource type="Texture2D" uid="uid://bg8ovc14n13vq" path="res://assets/images/characters/goblin_summon.png" id="2_mli0n"]
-[ext_resource type="Texture2D" uid="uid://thhxc0vdms0k" path="res://assets/images/archerborder.png" id="3_ulu11"]
+[ext_resource type="Texture2D" uid="uid://cknfvs18y6snr" path="res://assets/images/ui/panels/archerborder.png" id="3_ktuci"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ulu11"]
 
@@ -10,15 +9,11 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mli0n"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cgkcd"]
-atlas = ExtResource("2_mli0n")
-region = Rect2(0, 54, 24, 26)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_mli0n"]
-atlas = ExtResource("3_ulu11")
+atlas = ExtResource("3_ktuci")
 region = Rect2(0, 0, 64, 64)
 
-[node name="Card" type="Button" unique_id=273711164]
+[node name="Card" type="Button"]
 z_index = 2
 custom_minimum_size = Vector2(95, 105)
 anchors_preset = -1
@@ -36,7 +31,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_cgkcd")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mli0n")
 script = ExtResource("1_card")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1155494425]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 z_index = 2
 layout_mode = 1
 anchors_preset = -1
@@ -53,30 +48,29 @@ theme_override_constants/margin_top = 9
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=589634146]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 z_index = 2
 layout_mode = 2
 
-[node name="IconTexture" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1111316806]
+[node name="IconTexture" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = SubResource("AtlasTexture_cgkcd")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1568782798]
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 text = "Unit"
 horizontal_alignment = 1
 
-[node name="CostLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2045994880]
+[node name="CostLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 text = "0"
 horizontal_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=192581527]
+[node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -84,14 +78,14 @@ anchor_bottom = 1.018
 offset_right = 1.0
 offset_bottom = 0.019996643
 
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer2" unique_id=1890990099]
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer2"]
 z_index = -1
 layout_mode = 2
 texture = SubResource("AtlasTexture_mli0n")
-patch_margin_left = 19
-patch_margin_top = 19
+patch_margin_left = 15
+patch_margin_top = 15
 patch_margin_right = 17
-patch_margin_bottom = 17
+patch_margin_bottom = 15
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

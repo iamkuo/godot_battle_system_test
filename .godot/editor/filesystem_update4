@@ -1,0 +1,5 @@
+res://scenes/spawn_ui.tscn
+res://scenes/card.tscn
+res://resources/unit_stats/archer.tres
+res://important_scripts/projectile.gd
+res://important_scripts/unit/unit_base.gd

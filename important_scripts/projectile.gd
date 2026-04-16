@@ -1,6 +1,6 @@
 extends Area2D
 
-enum Team { PLAYER = 0, OPPONENT = 1 }
+enum Team {PLAYER = 0, OPPONENT = 1}
 
 @export var speed: float = 700.0
 @export var max_travel_distance: float = 3200.0

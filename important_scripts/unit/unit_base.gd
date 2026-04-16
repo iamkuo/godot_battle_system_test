@@ -1,7 +1,7 @@
 class_name UnitBase
 extends CharacterBody2D
 
-enum Team { PLAYER = 0, OPPONENT = 1 }
+enum Team {PLAYER = 0, OPPONENT = 1}
 
 const unit_selection_circle = preload("res://important_scripts/ui/unit_selection_circle.gd")
 
@@ -44,25 +44,23 @@ func _physics_process(delta: float):
 	var was_moving = velocity.length() > MOVING_SPEED_THRESHOLD
 	attack_cooldown = max(0.0, attack_cooldown - delta)
 	current_target = find_target()
-	_step_combat_or_march()
-	_sync_walk_idle_animation(was_moving)
-
-func _refresh_target():
-	current_target = find_target()
-
-func _step_combat_or_march():
 	if current_target and is_instance_valid(current_target):
 		var dist = global_position.distance_to(current_target.global_position)
 		if dist <= stats.attack_distance:
 			velocity = Vector2.ZERO
 			move_and_slide()
-			look_at(current_target.global_position)
+			# Face the target horizontally via sprite flip instead of look_at()
+			if sprite:
+				sprite.flip_h = (current_target.global_position.x < global_position.x)
 			if attack_cooldown <= 0.0:
 				_perform_attack(current_target)
 		else:
 			_move_towards(current_target.global_position)
 	else:
 		_move_towards(_get_march_destination())
+	_sync_walk_idle_animation(was_moving)
+	# Safety net: clamp rotation so units always face upward (-90° to 90°)
+	rotation = clampf(rotation, deg_to_rad(-90), deg_to_rad(90))
 
 func _sync_walk_idle_animation(was_moving: bool):
 	var now_moving = velocity.length() > MOVING_SPEED_THRESHOLD
@@ -118,7 +116,7 @@ func _perform_attack(target: Node):
 			projectile.damage = stats.attack_damage
 			projectile.team = team
 			if projectile.has_method("set_shooter"):
-				projectile.set_shooter(self)
+				projectile.set_shooter(self )
 			get_parent().add_child(projectile)
 
 	await get_tree().create_timer(0.3).timeout
@@ -135,12 +133,12 @@ func take_damage(amount: int) -> void:
 		_play_action("die")
 		await get_tree().create_timer(0.5).timeout
 		lifecycle_state = LifecycleState.DEAD
-		died.emit(self)
+		died.emit(self )
 		queue_free()
 
 func find_target() -> Node:
 	if behavior_pattern:
-		return behavior_pattern.get_target_for(self)
+		return behavior_pattern.get_target_for(self )
 
 	var all_enemies = get_tree().get_nodes_in_group("units")
 	var nearest: Node = null
@@ -177,7 +175,7 @@ func select_unit():
 		return
 	selected = true
 	if selection_circle and selection_circle is unit_selection_circle:
-		selection_circle.show_for_unit(self)
+		selection_circle.show_for_unit(self )
 
 func deselect_unit():
 	selected = false

@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1776316376
+::res://::1776316762
 problems&and_expect_moves.txt::TextFile::-1::1774512136::0::1::::<><><>0<>0<><>::
 PROJECT_DIFF.md::TextFile::-1::1775823412::0::1::::<><><>0<>0<><>::
 README.md::TextFile::-1::1775977623::0::1::::<><><>0<>0<><>::
@@ -151,11 +151,12 @@ Shop.png::CompressedTexture2D::8116112918507549763::1759938653::1775826749::1:::
 Text1.png::CompressedTexture2D::1319393991468670275::1759908021::1775826749::1::::<><><>0<>0<>240273d146a5a2a486a5718e6eb51d4a<>res://.godot/imported/Text1.png-f2357056d11ed2895725845d1a0f6c30.ctex::
 Text2.png::CompressedTexture2D::4721871936883070033::1759908030::1775826749::1::::<><><>0<>0<>d331032945c27168ec461221da44ce6c<>res://.godot/imported/Text2.png-14a77eb9dff785704083cb1a83ca6dc7.ctex::
 Win_loose.png::CompressedTexture2D::4979976302036736825::1759938646::1775826749::1::::<><><>0<>0<>555c6ec1cf7f555d1c6bc81044fcd095<>res://.godot/imported/Win_loose.png-02eb930190d36e2e9d2de1ff4c94a131.ctex::
-::res://assets/images/ui/panels/::1775826749
+::res://assets/images/ui/panels/::1776316745
 01 Border 01.png::CompressedTexture2D::4324205929342233736::1693486183::1775826749::1::::<><><>0<>0<>9f6c95ff030cee280ddbd4a1dcde16db<>res://.godot/imported/01 Border 01.png-67d867ca76b6ed850a83cb7f9122862f.ctex::
 01 Border 02.png::CompressedTexture2D::4728743350050238940::1693486183::1775826749::1::::<><><>0<>0<>e371f2f91824473fc2871632e58cb2df<>res://.godot/imported/01 Border 02.png-26c86b023f597660d1b455a3b72c3c40.ctex::
 01 Border 03.png::CompressedTexture2D::5941325750348568808::1693486183::1775826749::1::::<><><>0<>0<>06ec78a1c8a098aa1a55854e5c74ac2c<>res://.godot/imported/01 Border 03.png-5c629f234350d8201f5352ca55455ba7.ctex::
 02 Border 01.png::CompressedTexture2D::8492109512101198854::1693486230::1775826749::1::::<><><>0<>0<>a4ab9eef9bd1db9c500b5ea834a8e154<>res://.godot/imported/02 Border 01.png-0399f18414dc75d858666b9bf3b54792.ctex::
+02 Border 02 去背板.png::CompressedTexture2D::2126939365150282843::1776316496::1776316745::1::::<><><>0<>0<>461f0faf7c59d96d72c87c38e5f8e9e8<>res://.godot/imported/02 Border 02 去背板.png-affcb891c36feb25ef35b97e94e0824a.ctex::
 02 Border 02.png::CompressedTexture2D::2858308533938735973::1693486230::1775826749::1::::<><><>0<>0<>b6d5f504cdd175fabf69efd5897e9026<>res://.godot/imported/02 Border 02.png-9ec861067410b3558fef831e469e4657.ctex::
 02 Border 03.png::CompressedTexture2D::8717719313378735325::1693486230::1775826749::1::::<><><>0<>0<>ca14edbcfb9b14ba922af4868bc70e24<>res://.godot/imported/02 Border 03.png-9b33f0e582171bfcae142cc0a0a32479.ctex::
 03 Border 01.png::CompressedTexture2D::4301878710799061144::1693486255::1775826749::1::::<><><>0<>0<>4dea7a489e00d82beebe963063c5b0ac<>res://.godot/imported/03 Border 01.png-2ad07a1fbc358cdc1f58c27bdc9313a6.ctex::
@@ -200,16 +201,17 @@ Win_loose.png::CompressedTexture2D::4979976302036736825::1759938646::1775826749:
 16 Border 01.png::CompressedTexture2D::4990255996853196958::1693486431::1775826749::1::::<><><>0<>0<>4c538bb16296141e24f3b92f9f677d91<>res://.godot/imported/16 Border 01.png-9b710df559a1b8211f5cdac39e7898bd.ctex::
 16 Border 02.png::CompressedTexture2D::1547160460931348329::1693486431::1775826749::1::::<><><>0<>0<>11b560f3a358dfe03571588f533c31d2<>res://.godot/imported/16 Border 02.png-02f5c8282074bf93b42b8100e2db4e93.ctex::
 16 Border 03.png::CompressedTexture2D::3907929078752300077::1693486431::1775826749::1::::<><><>0<>0<>b0ba4a95a330b89270acc1c66540a02c<>res://.godot/imported/16 Border 03.png-9e06a1ea2cd6f99783dfaf42b004d080.ctex::
+archerborder.png::CompressedTexture2D::5501908788323036331::1776316496::1776316745::1::::<><><>0<>0<>735563f1cf9bf098b67260f86d23e6a0<>res://.godot/imported/archerborder.png-4f1ad26a319a71e957e64a74b3de9b31.ctex::
 ::res://assets/stats/::1775826535
-::res://important_scripts/::1775969998
-battle_manager.gd::GDScript::3378036960245604285::1775977073::0::1::::<>Node<><>0<>0<><>::
+::res://important_scripts/::1776316655
+battle_manager.gd::GDScript::3378036960245604285::1776316496::0::1::::<>Node<><>0<>0<><>::
 player_in_battle.gd::GDScript::976197762586839046::1775742321::0::1::::<>CharacterBody2D<><>0<>0<><>::
 projectile.gd::GDScript::7629073808943110875::1775977225::0::1::::<>Area2D<><>0<>0<><>::
 ::res://important_scripts/tower/::1775970362
 tower_base.gd::GDScript::76197554942707742::1775978114::0::1::::TowerBase<>Node2D<><>0<>0<><>::
 tower_manager.gd::GDScript::2636203682208244447::1775970150::0::1::::<>Node2D<><>0<>0<><>::
-::res://important_scripts/ui/::1775978851
-card.gd::GDScript::10420367593099380::1775977225::0::1::::Card<>Button<><>0<>0<><>::
+::res://important_scripts/ui/::1776316655
+card.gd::GDScript::10420367593099380::1776316496::0::1::::Card<>Button<><>0<>0<><>::
 ending_screen.gd::GDScript::7107038020331417658::1775977612::0::1::::<>Control<><>0<>0<><>::
 message_manager.gd::GDScript::6914813147992717983::1775978851::0::1::::<>Node<><>0<>0<><>::
 unit_control_panel.gd::GDScript::4609024134368876440::1775823838::0::1::::UnitControlPanel<>Control<><>0<>0<><>::
@@ -232,13 +234,14 @@ enemy_mage.tres::Resource/UnitStats::4516900305789107425::1775982052::0::1::::<>
 enemy_warrior.tres::Resource::-1::1775976926::0::1::::<><><>0<>0<><>::uid://d2pre0q0hthyw::::res://important_scripts/unit/unit_stats.gd
 mage.tres::Resource::-1::1775976939::0::1::::<><><>0<>0<><>::uid://d2pre0q0hthyw::::res://important_scripts/unit/unit_stats.gd<>uid://gerl1nl20c62::::res://scenes/units/projectiles/allies_projectile.tscn
 warrior.tres::Resource::-1::1775976939::0::1::::<><><>0<>0<><>::uid://d2pre0q0hthyw::::res://important_scripts/unit/unit_stats.gd
-::res://scenes/::1775980819
+::res://scenes/::1776316744
+card.tscn::PackedScene::6372067861839684092::1776316744::0::1::::<><><>0<>0<><>::uid://fbve7n5dsau::::res://important_scripts/ui/card.gd<>uid://bg8ovc14n13vq::::res://assets/images/characters/goblin_summon.png<>uid://thhxc0vdms0k::::res://assets/images/archerborder.png
 ending_screen.tscn::PackedScene::1165316499052136951::1775968426::0::1::::<><><>0<>0<><>::uid://c8ix4311atj3g::::res://important_scripts/ui/ending_screen.gd<>uid://cjmwhv0846in6::::res://assets/images/ui/panels/04 Border 03.png
-Main.tscn::PackedScene::7255930752538406031::1775980112::0::1::::<><><>0<>0<><>::uid://boel1mem23w0d::::res://important_scripts/battle_manager.gd<>uid://dtu2mud6hhf86::::res://assets/images/environment/landscape/decor_8x8.png<>uid://co5n7bwvy1gmq::::res://assets/images/environment/landscape/plains.png<>uid://dlayypi5c8aj3::::res://assets/images/environment/house.png<>uid://tu7tole1qm3h::::res://scenes/player.tscn<>uid://d2kbgk6v4hfw4::::res://scenes/spawn_ui.tscn<>uid://quque6ani7t8::::res://scenes/ending_screen.tscn<>uid://bv8xk2m4n5p6q::::res://scenes/ui/message_ui.tscn<>uid://cl7hmeq86ar3y::::res://scenes/Tower.tscn<>uid://bds85iit5xw5t::::res://important_scripts/tower/tower_manager.gd<>uid://dlauk8cqn3cil::::res://important_scripts/unit/allies_manager.gd<>uid://d0p2o6ooadf65::::res://important_scripts/unit/enemies_manager.gd
-player.tscn::PackedScene::1376853210593411407::1775980128::0::1::::<><><>0<>0<><>::uid://n543mygrfwje::::res://important_scripts/player_in_battle.gd<>uid://b0oecl585bnd3::::res://assets/player.png
-spawn_ui.tscn::PackedScene::9075076612718588805::1775968360::0::1::::<><><>0<>0<><>::uid://y3dw53edymkq::::res://other_scripts/spawn_ui.gd<>uid://cjmwhv0846in6::::res://assets/images/ui/panels/04 Border 03.png
+Main.tscn::PackedScene::7255930752538406031::1776316496::0::1::::<><><>0<>0<><>::uid://boel1mem23w0d::::res://important_scripts/battle_manager.gd<>uid://dtu2mud6hhf86::::res://assets/images/environment/landscape/decor_8x8.png<>uid://co5n7bwvy1gmq::::res://assets/images/environment/landscape/plains.png<>uid://dlayypi5c8aj3::::res://assets/images/environment/house.png<>uid://tu7tole1qm3h::::res://scenes/player.tscn<>uid://d2kbgk6v4hfw4::::res://scenes/spawn_ui.tscn<>uid://quque6ani7t8::::res://scenes/ending_screen.tscn<>uid://bv8xk2m4n5p6q::::res://scenes/ui/message_ui.tscn<>uid://cl7hmeq86ar3y::::res://scenes/Tower.tscn<>uid://bds85iit5xw5t::::res://important_scripts/tower/tower_manager.gd<>uid://dlauk8cqn3cil::::res://important_scripts/unit/allies_manager.gd<>uid://d0p2o6ooadf65::::res://important_scripts/unit/enemies_manager.gd
+player.tscn::PackedScene::1376853210593411407::1776316496::0::1::::<><><>0<>0<><>::uid://n543mygrfwje::::res://important_scripts/player_in_battle.gd<>uid://b0oecl585bnd3::::res://assets/player.png
+spawn_ui.tscn::PackedScene::9075076612718588805::1776316496::0::1::::<><><>0<>0<><>::uid://y3dw53edymkq::::res://other_scripts/spawn_ui.gd<>uid://cjmwhv0846in6::::res://assets/images/ui/panels/04 Border 03.png
 Tower.tscn::PackedScene::5611425420361782436::1775980112::0::1::::<><><>0<>0<><>::uid://bc57y06owrfa::::res://important_scripts/tower/tower_base.gd<>uid://dlayypi5c8aj3::::res://assets/images/environment/house.png
-unit.tscn::PackedScene::3717479759356626503::1775981220::0::1::::<><><>0<>0<><>::uid://u2ul061i3w7x::::res://important_scripts/unit/unit.gd<>uid://bg8ovc14n13vq::::res://assets/images/characters/goblin_summon.png
+unit.tscn::PackedScene::3717479759356626503::1776316496::0::1::::<><><>0<>0<><>::uid://u2ul061i3w7x::::res://important_scripts/unit/unit.gd<>uid://bg8ovc14n13vq::::res://assets/images/characters/goblin_summon.png
 ::res://scenes/ui/::1775982052
 card.tscn::PackedScene::-1::1775827436::0::1::::<><><>0<>0<><>::uid://fbve7n5dsau::::res://scripts/ui/card.gd
 message_ui.tscn::PackedScene::3929926652752735434::1775982052::0::1::::<><><>0<>0<><>::
