@@ -19,6 +19,7 @@ name="ClashPrototype"
 [autoload]
 
 MessageManager="*res://important_scripts/ui/message_manager.gd"
+ProjectileManager="*res://important_scripts/projectile_manager.gd"
 
 [input]
 

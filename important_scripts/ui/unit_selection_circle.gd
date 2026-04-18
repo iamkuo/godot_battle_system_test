@@ -2,7 +2,6 @@ class_name UnitSelectionCircle
 extends Node2D
 
 var target_unit: UnitBase = null
-var radius: float = 50.0
 var visible_state: bool = false
 
 func _ready():
@@ -11,7 +10,6 @@ func _ready():
 
 func show_for_unit(unit: UnitBase):
 	target_unit = unit
-	radius = unit.stats.attack_distance
 	visible = true
 
 func hide_circle():
@@ -19,14 +17,15 @@ func hide_circle():
 	visible = false
 
 func _draw():
-	if not visible:
+	if not visible or not target_unit:
 		return
 
-	draw_arc(Vector2.ZERO, radius, 0, TAU, 32, Color.GREEN, 2.0)
+	# Account for parent scale to draw correct attack range
+	var scale_factor = get_parent().scale.x if get_parent() else 1.0
+	var radius = target_unit.stats.attack_distance / scale_factor
 
-	if target_unit:
-		var dir = Vector2(1, 0)
-		draw_line(Vector2.ZERO, dir * radius, Color.YELLOW, 2.0)
+	# Draw attack range circle
+	draw_arc(Vector2.ZERO, radius, 0, TAU, 64, Color.GREEN, 2.0)
 
 func _process(_delta):
 	if visible:

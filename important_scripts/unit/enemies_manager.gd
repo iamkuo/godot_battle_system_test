@@ -4,7 +4,6 @@ enum Team { PLAYER = 0, OPPONENT = 1 }
 
 const SPAWN_LANES: int = 3
 const UNIT_SCENES_PATH: String = "res://scenes/unit.tscn"
-const OPPONENT_PROJECTILE_SCENE = preload("res://scenes/units/projectiles/opponents_projectile.tscn")
 
 var opponent_team: Team = Team.OPPONENT
 
@@ -20,10 +19,7 @@ func spawn_unit(stats: UnitStats, pos: Vector2, lane: int) -> void:
 	unit.global_position = pos
 	unit.team = opponent_team
 	unit.lane = lane
-	var runtime_stats = stats.duplicate()
-	if runtime_stats.attack_type == UnitStats.AttackType.PROJECTILE:
-		runtime_stats.projectile_scene = OPPONENT_PROJECTILE_SCENE
-	unit.stats = runtime_stats
+	unit.stats = stats.duplicate()
 	
 	add_child(unit)
 	

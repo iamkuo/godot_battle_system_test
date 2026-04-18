@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://tu7tole1qm3h"]
+[gd_scene load_steps=13 format=3 uid="uid://tu7tole1qm3h"]
 
 [ext_resource type="Script" uid="uid://n543mygrfwje" path="res://important_scripts/player_in_battle.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://b0oecl585bnd3" path="res://assets/images/characters/player.png" id="2_qhqgy"]
@@ -74,17 +74,18 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wkp8b"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1966967509 groups=["player"]]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_g2els")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1648692846]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mwfav")
 animation = &"walk"
 frame_progress = 0.9855049
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=666819143]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_wkp8b")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1319245389]
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
 
-[node name="unitspawnpoint" type="Marker2D" parent="." unique_id=297205885]
+[node name="unitspawnpoint" type="Marker2D" parent="."]

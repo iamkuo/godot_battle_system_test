@@ -8,6 +8,9 @@ signal spawn_failed(reason: String)
 const SPAWN_LANES: int = 3
 const UNIT_SCENES_PATH: String = "res://scenes/unit.tscn"
 
+# Default behavior pattern for newly spawned units
+const DEFAULT_BEHAVIOR = preload("res://important_scripts/unit/behavior_pattern.gd")
+
 var local_team: Team = Team.PLAYER
 
 func spawn_unit(stats: UnitStats, pos: Vector2, lane: int) -> void:
@@ -25,6 +28,11 @@ func spawn_unit(stats: UnitStats, pos: Vector2, lane: int) -> void:
 	unit.team = local_team
 	unit.lane = lane
 	unit.stats = stats.duplicate()
+	
+	# Set default behavior pattern (ATTACK_NEAREST_ENEMY)
+	var default_pattern = DEFAULT_BEHAVIOR.new()
+	default_pattern.pattern_type = DEFAULT_BEHAVIOR.PatternType.ATTACK_NEAREST_ENEMY
+	unit.set_behavior_pattern(default_pattern)
 	
 	add_child(unit)
 	

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: float = 200.0
-@onready var anim_sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(_delta: float) -> void:
 	var input_vector = Vector2.ZERO
@@ -12,7 +12,6 @@ func _physics_process(_delta: float) -> void:
 	velocity = input_vector * speed
 	move_and_slide()
 	
-	# --- 動畫控制 ---
 	if input_vector != Vector2.ZERO:
 		anim_sprite.play("walk")
 		if input_vector.x < 0:

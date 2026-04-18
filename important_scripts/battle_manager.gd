@@ -1,6 +1,6 @@
 extends Node
 
-@onready var player_spawn_point = get_tree().current_scene.get_node("Player/UnitSpawnPoint")
+@onready var player = get_tree().current_scene.get_node("Player")
 signal game_state_changed(state: String)
 
 enum Team { PLAYER = 0, OPPONENT = 1 }
@@ -33,6 +33,7 @@ func _ready() -> void:
 	else:
 		print("DEBUG: FAIL - curr is null in _ready!")
 		
+	# Only load enemy stats for AI spawning
 	unit_stats_registry.clear()
 	var dir = DirAccess.open("res://resources/unit_stats/")
 	if dir:
@@ -41,7 +42,7 @@ func _ready() -> void:
 			file_name = file_name.trim_suffix(".remap")
 			if file_name.ends_with(".tres") or file_name.ends_with(".res"):
 				var resource = load("res://resources/unit_stats/" + file_name)
-				if resource and "cost" in resource and resource.team == 1:
+				if resource and "cost" in resource and resource.team == Team.OPPONENT:
 					unit_stats_registry[file_name.replace(".tres", "")] = resource
 	
 	game_state = "ready"
@@ -65,33 +66,23 @@ func _process(delta: float) -> void:
 	var lane = randi() % SPAWN_LANES
 	spawn_enemy(random_stat, lane)
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("po"):
-		var stats_ids = unit_stats_registry.keys()
-		if not stats_ids.is_empty():
-			spawn_ally(unit_stats_registry[stats_ids[0]], 0)
-
-func _get_fixed_opponent_spawn_point(lane: int) -> Vector2:
-	var team_enum =  Team.OPPONENT
-	var suffix = ["Top", "Middle", "Bottom"][lane] if lane >= 0 and lane < 3 else "Middle"
-	var prefix = "L" if team_enum == Team.PLAYER else "R"
-	if spawn_points and spawn_points.has_node(prefix + "_" + suffix):
-		return spawn_points.get_node(prefix + "_" + suffix).global_position
-	return Vector2.ZERO
-
-func get_spawn_point(team: int, _lane: int) -> Vector2:
-	if team == 0:
-		var player = get_tree().get_first_node_in_group("player")
+func get_spawn_point(team: int, lane: int) -> Vector2:
+	if team == Team.PLAYER:
+		var p_node = get_tree().get_first_node_in_group("player")
+		if is_instance_valid(p_node):
+			return p_node.global_position
+		return Vector2.ZERO
 		
-		if is_instance_valid(player):
-			var marker = player.get_node_or_null("Player/UnitSpawnPoint")
-			return player.global_position + Vector2(30, 0)
-	return _get_fixed_opponent_spawn_point(_lane)
+	var suffix = ["Top", "Middle", "Bottom"][lane] if lane >= 0 and lane < 3 else "Middle"
+	if spawn_points and spawn_points.has_node("R_" + suffix):
+		return spawn_points.get_node("R_" + suffix).global_position
+	return Vector2.ZERO
 
 func spawn_ally(stats: UnitStats, lane: int) -> void:
 	if not stats or not allies_container:
 		return
 	if elixir and not elixir.try_consume(stats.cost):
+		MessageManager.show_message("Not enough elixir!")
 		return
 	var pos = get_spawn_point(Team.PLAYER, lane)
 	allies_container.spawn_unit(stats, pos, lane)

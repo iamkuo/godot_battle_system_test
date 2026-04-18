@@ -1,7 +1,7 @@
 extends Button
 class_name Card
 
-enum Team { PLAYER = 0, OPPONENT = 1 }
+enum Team {PLAYER = 0, OPPONENT = 1}
 
 signal card_pressed(card: Card)
 
@@ -30,26 +30,24 @@ func _setup_ui():
 		if cost_label:
 			cost_label.text = str(unit_stats.cost)
 		if name_label:
-			name_label.text = unit_stats.resource_name.replace("Stats", "")
+			var display = unit_stats.display_name
+			if display == "":
+				display = unit_stats.unit_id.replace("_", " ").capitalize()
+			if display == "":
+				display = "None"
+			
+			name_label.text = display
 		if icon_texture and unit_stats.button_icon:
 			icon_texture.texture = unit_stats.button_icon
 
 func _on_pressed():
 	if not gm: return
 	print("Card pressed: ", unit_stats.resource_name, ", cost=", unit_stats.cost)
-	if gm.elixir.get_current_int() < unit_stats.cost:
-		print("Not enough elixir")
-		MessageManager.show_message("Not enough Elixir")
-		return
-	if not gm.can_spawn(team, unit_stats.cost):
-		print("can_spawn returned false")
-		MessageManager.show_message("Not enough Elixir")
-		return
-	print("Spawning unit via gm")
-	gm.spawn_ally(unit_stats, lane)
-	emit_signal("card_pressed", self)
 	
-
+	# gm.spawn_ally will handle consumption and show message if elixir is low
+	gm.spawn_ally(unit_stats, lane)
+	emit_signal("card_pressed", self )
+	
 
 func _on_mouse_entered() -> void:
 	$".".scale = Vector2(1.1, 1.1)
@@ -59,3 +57,17 @@ func _on_mouse_exited() -> void:
 	$".".scale = Vector2(1.0, 1.0)
 	$".".position.x += 5
 	$".".position.y += 5
+
+func set_hotkey(hotkey_str: String):
+	# Using find_child with recursive search
+	var hotkey_label = get_node_or_null("HotkeyLabel")
+	if not hotkey_label:
+		hotkey_label = Label.new()
+		hotkey_label.name = "HotkeyLabel"
+		add_child(hotkey_label)
+		# Basic positioning
+		hotkey_label.position = Vector2(5, 5)
+		# Add a subtle background or focus for the hotkey
+		hotkey_label.add_theme_color_override("font_color", Color.YELLOW)
+	
+	hotkey_label.text = "[%s]" % hotkey_str

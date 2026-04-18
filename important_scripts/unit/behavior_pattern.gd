@@ -12,58 +12,87 @@ enum PatternType {
 @export var name: String = "Attack Nearest Enemy"
 @export var description: String = "Automatically targets and attacks the nearest enemy unit"
 
-@export_group("Follow Settings")
-@export var follow_distance: float = 100.0
-
-func _init():
-	resource_name = "BehaviorPattern"
-
+# Returns the target to attack (if any) based on pattern type
 func get_target_for(unit: Node2D) -> Node:
 	match pattern_type:
 		PatternType.STAY:
-			return _get_target_in_range(unit)
-		PatternType.FOLLOW_PLAYER:
-			return _handle_follow_player(unit)
-		PatternType.ATTACK_NEAREST_ENEMY:
-			return _get_nearest_enemy(unit)
+			# Only attack enemies within attack distance
+			return _find_nearest_enemy(unit, unit.stats.attack_distance)
+		
+		PatternType.FOLLOW_PLAYER, PatternType.ATTACK_NEAREST_ENEMY:
+			# Attack enemies within view distance, then towers
+			var enemy = _find_nearest_enemy(unit, unit.stats.view_distance)
+			return enemy if enemy else _find_nearest_tower(unit)
+		
 		PatternType.ATTACK_NEAREST_TOWER:
-			return _get_nearest_tower(unit)
+			return _find_nearest_tower(unit)
+	
 	return null
 
-func _get_target_in_range(unit: Node2D) -> Node:
-	var enemies = _get_nearby_enemies(unit, unit.stats.attack_distance)
-	return enemies[0] if enemies else null
-
-func _handle_follow_player(unit: Node2D) -> Node:
-	var player = _get_player_reference(unit)
-	if not player:
-		return _get_target_in_range(unit)
+# Returns the position the unit should move toward based on pattern type
+func get_movement_target(unit: Node2D, attack_target: Node = null) -> Vector2:
+	match pattern_type:
+		PatternType.STAY:
+			return unit.global_position  # Don't move
+		
+		PatternType.FOLLOW_PLAYER:
+			return _get_player_position(unit) if _get_player_position(unit) else _get_lane_goal_pos(unit)
+		
+		PatternType.ATTACK_NEAREST_ENEMY, PatternType.ATTACK_NEAREST_TOWER:
+			# If we have an attack target, move toward it (or stop if ranged and in range)
+			if attack_target:
+				if _should_ranged_stop(unit, attack_target):
+					return unit.global_position
+				return attack_target.global_position
+			
+			# No attack target - march toward lane goal
+			return _get_lane_goal_pos(unit)
 	
-	var dist = unit.global_position.distance_to(player.global_position)
-	if dist > follow_distance:
-		unit.set_meta("move_to_position", player.global_position)
-	
-	return _get_target_in_range(unit)
+	return _get_lane_goal_pos(unit)
 
-func _get_nearest_enemy(unit: Node2D) -> Node:
-	var all_enemies = unit.get_tree().get_nodes_in_group("units")
+# Helper: Check if ranged unit should stop to attack
+func _should_ranged_stop(unit: Node2D, target: Node) -> bool:
+	if unit.stats.attack_type != UnitStats.AttackType.PROJECTILE:
+		return false
+	var dist = unit.global_position.distance_to(target.global_position)
+	return dist <= unit.stats.attack_distance
+
+# Helper: Get player position if available
+func _get_player_position(unit: Node2D) -> Vector2:
+	var players = unit.get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		return players[0].global_position
+	return Vector2.ZERO
+
+static func get_pattern_name(type: PatternType) -> String:
+	match type:
+		PatternType.STAY:
+			return "Stay"
+		PatternType.FOLLOW_PLAYER:
+			return "Follow Player"
+		PatternType.ATTACK_NEAREST_ENEMY:
+			return "Attack Nearest Enemy"
+		PatternType.ATTACK_NEAREST_TOWER:
+			return "Attack Nearest Tower"
+	return "Unknown"
+
+# Private helper functions
+func _find_nearest_enemy(unit: Node2D, max_range: float) -> Node:
+	var all_units = unit.get_tree().get_nodes_in_group("units")
 	var nearest: Node = null
-	var nearest_dist: float = 1e9
+	var nearest_dist: float = max_range
 	
-	for enemy in all_enemies:
-		if enemy == unit or enemy.team == unit.team:
+	for u in all_units:
+		if u == unit or u.team == unit.team:
 			continue
-		var dist = unit.global_position.distance_to(enemy.global_position)
-		if dist < nearest_dist and dist <= unit.stats.view_distance:
+		var dist = unit.global_position.distance_to(u.global_position)
+		if dist < nearest_dist:
 			nearest_dist = dist
-			nearest = enemy
+			nearest = u
 	
-	if nearest:
-		return nearest
-	
-	return _get_nearest_tower(unit)
+	return nearest
 
-func _get_nearest_tower(unit: Node2D) -> Node:
+func _find_nearest_tower(unit: Node2D) -> Node:
 	var towers = unit.get_tree().get_nodes_in_group("towers")
 	var nearest: Node = null
 	var nearest_dist: float = 1e9
@@ -80,32 +109,12 @@ func _get_nearest_tower(unit: Node2D) -> Node:
 	
 	return nearest
 
-func _get_nearby_enemies(unit: Node2D, range: float) -> Array:
-	var enemies = []
-	var all_units = unit.get_tree().get_nodes_in_group("units")
+func _get_lane_goal_pos(unit: Node2D) -> Vector2:
+	const PLAYER_GOAL_X: float = 1400.0
+	const OPPONENT_GOAL_X: float = 200.0
 	
-	for u in all_units:
-		if u.team == unit.team:
-			continue
-		if unit.global_position.distance_to(u.global_position) <= range:
-			enemies.append(u)
+	if unit is UnitBase:
+		var x = PLAYER_GOAL_X if unit.team == UnitBase.Team.PLAYER else OPPONENT_GOAL_X
+		return Vector2(x, unit.global_position.y)
 	
-	return enemies
-
-func _get_player_reference(unit: Node2D) -> Node2D:
-	var players = unit.get_tree().get_nodes_in_group("player")
-	if players.size() > 0:
-		return players[0] as Node2D
-	return null
-
-static func get_pattern_name(type: PatternType) -> String:
-	match type:
-		PatternType.STAY:
-			return "Stay"
-		PatternType.FOLLOW_PLAYER:
-			return "Follow Player"
-		PatternType.ATTACK_NEAREST_ENEMY:
-			return "Attack Nearest Enemy"
-		PatternType.ATTACK_NEAREST_TOWER:
-			return "Attack Nearest Tower"
-	return "Unknown"
+	return Vector2(PLAYER_GOAL_X, unit.global_position.y)

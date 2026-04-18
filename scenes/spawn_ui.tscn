@@ -1,32 +1,7 @@
-[gd_scene load_steps=0 format=3 uid="uid://d2kbgk6v4hfw4"]
+[gd_scene load_steps=9 format=3 uid="uid://d2kbgk6v4hfw4"]
 
 [ext_resource type="Script" uid="uid://y3dw53edymkq" path="res://other_scripts/spawn_ui.gd" id="1_c3msa"]
 [ext_resource type="Texture2D" uid="uid://cjmwhv0846in6" path="res://assets/images/ui/panels/04 Border 03.png" id="2_73l6q"]
-[ext_resource type="Texture2D" uid="uid://5kkm6744fotf" path="res://assets/images/ui/panels/02 Border 02 去背板.png" id="3_73l6q"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_elixir_bar"]
-bg_color = Color(0.5094243, 0.0014038777, 0.67029357, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.1, 0.2, 0.5, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d7tge"]
-atlas = ExtResource("3_73l6q")
-region = Rect2(0, 1, 63, 61)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_frbt5"]
-texture = SubResource("AtlasTexture_d7tge")
-texture_margin_left = 50.0
-texture_margin_top = 15.0
-texture_margin_right = 49.0
-texture_margin_bottom = 50.0
-region_rect = Rect2(0, 0, 62, 61)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2h25i"]
 atlas = ExtResource("2_73l6q")
@@ -40,63 +15,78 @@ texture_margin_right = 42.0
 texture_margin_bottom = 45.0
 region_rect = Rect2(4, 2, 183, 186)
 
-[node name="SpawnUI" type="Control" unique_id=1905092242]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_elixir_bar"]
+bg_color = Color(0.5094243, 0.0014038777, 0.67029357, 1)
+border_color = Color(0.1, 0.2, 0.5, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c3msa"]
+load_path = "res://.godot/imported/02 Border 02 去背板.png-affcb891c36feb25ef35b97e94e0824a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73l6q"]
+atlas = SubResource("CompressedTexture2D_c3msa")
+region = Rect2(0, 1, 63, 61)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d7tge"]
+texture = SubResource("AtlasTexture_73l6q")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+region_rect = Rect2(0, 0, 62, 61)
+
+[node name="SpawnUI" type="Control"]
 z_index = 1
 layout_mode = 3
-anchor_top = 0.679
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = -447.992
-offset_right = 8.0
-offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_c3msa")
 
-[node name="ElixirUI" type="Control" parent="." unique_id=900031305]
+[node name="Background" type="Panel" parent="."]
 layout_mode = 1
-anchor_left = 0.014
-anchor_top = 0.716
-anchor_right = 0.95800006
-anchor_bottom = 0.79
-offset_left = -32.128
-offset_top = -463.96802
-offset_right = 48.38391
-offset_bottom = 144.07999
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_t2po6")
+
+[node name="ElixirUI" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.05
+anchor_top = 0.55
+anchor_right = 0.95
+anchor_bottom = 0.6
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ElixirLabel" type="Label" parent="ElixirUI" unique_id=1773371742]
+[node name="ElixirLabel" type="Label" parent="ElixirUI"]
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.041
-anchor_top = 0.75600004
-anchor_right = 0.082
-anchor_bottom = 0.78000003
-offset_left = -47.888
-offset_top = -31.936035
-offset_right = 51.423996
-offset_bottom = 16.319977
+anchor_right = 0.1
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "5/10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ElixirBar" type="ProgressBar" parent="ElixirUI" unique_id=334038635]
-z_index = 1
+[node name="ElixirBar" type="ProgressBar" parent="ElixirUI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.096
-anchor_top = 0.73200005
-anchor_right = 0.94500005
-anchor_bottom = 0.78000003
-offset_left = -0.12799835
-offset_top = -0.19204712
-offset_right = 0.23999023
-offset_bottom = 0.3199768
+anchor_left = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_elixir_bar")
@@ -104,57 +94,35 @@ max_value = 10.0
 value = 5.0
 show_percentage = false
 
-[node name="Panel" type="Panel" parent="ElixirUI" unique_id=1744696985]
-z_index = 1
+[node name="BarBorder" type="Panel" parent="ElixirUI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.082
-anchor_top = 0.707
-anchor_right = 0.95900005
-anchor_bottom = 0.80500007
-offset_left = 16.223999
-offset_top = 16.207977
-offset_right = -16.11206
-offset_bottom = -16.080017
-theme_override_styles/panel = SubResource("StyleBoxTexture_frbt5")
-
-[node name="CardsUI" type="Control" parent="." unique_id=1450250053]
-layout_mode = 1
-anchor_left = -0.014
-anchor_top = 0.66700006
+anchor_left = 0.1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 0.12800026
-offset_top = -432.21603
-offset_bottom = 8.0
+offset_bottom = 3.1999817
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d7tge")
 
-[node name="Panel" type="Panel" parent="CardsUI" unique_id=514481614]
+[node name="CardsUI" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.014
-anchor_top = 0.24400002
+anchor_left = 0.05
+anchor_top = 0.65
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="CardsContainer" type="HBoxContainer" parent="CardsUI"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.3520012
-offset_top = 287.93597
-offset_right = -16.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_t2po6")
-
-[node name="CardsContainer" type="HBoxContainer" parent="CardsUI/Panel" unique_id=338101625]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.38500002
-anchor_right = 1.0
-anchor_bottom = 0.846
-offset_left = 32.0
-offset_top = -0.08000183
-offset_right = -32.0
-offset_bottom = 0.03199768
-grow_horizontal = 2
-grow_vertical = 0
 theme_override_constants/separation = 50
 alignment = 1
+mouse_filter = 1

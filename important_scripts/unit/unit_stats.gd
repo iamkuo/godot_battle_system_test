@@ -14,7 +14,6 @@ enum Team { PLAYER = 0, OPPONENT = 1 }
 @export var attack_damage: int = 25
 @export var attack_speed: float = 1.0
 @export var attack_type: AttackType = AttackType.DIRECT
-@export var projectile_scene: PackedScene = null
 
 @export_group("Movement Stats")
 @export var move_speed: float = 120.0
@@ -25,10 +24,9 @@ enum Team { PLAYER = 0, OPPONENT = 1 }
 
 @export_group("Visual")
 @export var unit_id: String = ""
+@export var display_name: String = ""
 @export var button_icon: Texture2D = null
 
-func _init():
-	resource_name = "UnitStats"
 
 func create_runtime_data() -> Dictionary:
 	return {
@@ -38,13 +36,13 @@ func create_runtime_data() -> Dictionary:
 		"attack_damage": attack_damage,
 		"attack_speed": attack_speed,
 		"attack_type": attack_type,
-		"projectile_scene": projectile_scene,
 		"move_speed": move_speed,
 		"view_distance": view_distance,
 		"attack_distance": attack_distance,
 		"cost": cost,
 		"button_icon": button_icon,
-		"unit_id": unit_id
+		"unit_id": unit_id,
+		"display_name": display_name
 	}
 
 func duplicate_with_values(p_health: int = -1, p_defense: int = -1, p_cost: int = -1, p_damage: int = -1) -> UnitStats:

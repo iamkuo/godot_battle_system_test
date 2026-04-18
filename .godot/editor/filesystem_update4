@@ -1,5 +1,12 @@
-res://scenes/spawn_ui.tscn
-res://scenes/card.tscn
-res://resources/unit_stats/archer.tres
-res://important_scripts/projectile.gd
 res://important_scripts/unit/unit_base.gd
+res://important_scripts/ui/properties_ui.gd
+res://scenes/ui/properties_ui.tscn
+res://important_scripts/battle_manager.gd
+res://scenes/spawn_ui.tscn
+res://scenes/Main.tscn
+res://other_scripts/spawn_ui.gd
+res://scenes/unit.tscn
+res://important_scripts/unit/behavior_pattern.gd
+res://important_scripts/ui/unit_selection_circle.gd
+res://important_scripts/unit/allies_manager.gd
+res://important_scripts/projectile.gd

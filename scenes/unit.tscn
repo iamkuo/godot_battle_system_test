@@ -1,15 +1,18 @@
-[gd_scene format=3 uid="uid://bs71l34xeqxed"]
+[gd_scene load_steps=48 format=3 uid="uid://bs71l34xeqxed"]
 
 [ext_resource type="Script" uid="uid://u2ul061i3w7x" path="res://important_scripts/unit/unit.gd" id="1_k673f"]
 [ext_resource type="Texture2D" uid="uid://bg8ovc14n13vq" path="res://assets/images/characters/goblin_summon.png" id="2_k673f"]
+[ext_resource type="Script" uid="uid://t7d5xt8eik8i" path="res://important_scripts/ui/unit_selection_circle.gd" id="3_selection_circle"]
+[ext_resource type="PackedScene" uid="uid://bdw7ku2f5uedd" path="res://scenes/ui/properties_ui.tscn" id="4_properties_ui"]
 
 [sub_resource type="Resource" id="UnitStats_warrior"]
 resource_name = "UnitStats"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r0du0"]
+radius = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_03owx"]
-radius = 26.0
+radius = 100.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k673f"]
 atlas = ExtResource("2_k673f")
@@ -85,19 +88,19 @@ region = Rect2(144, 135, 24, 27)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2l1pa"]
 atlas = ExtResource("2_k673f")
-region = Rect2(0, 0, 24, 27)
+region = Rect2(0, 108, 24, 27)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gcaai"]
 atlas = ExtResource("2_k673f")
-region = Rect2(24, 0, 24, 27)
+region = Rect2(24, 108, 24, 27)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vpjum"]
 atlas = ExtResource("2_k673f")
-region = Rect2(48, 0, 24, 27)
+region = Rect2(48, 108, 24, 27)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tamsr"]
 atlas = ExtResource("2_k673f")
-region = Rect2(72, 0, 24, 27)
+region = Rect2(72, 108, 24, 27)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_meg8o"]
 atlas = ExtResource("2_k673f")
@@ -185,7 +188,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5pi0r")
 }],
-"loop": true,
+"loop": false,
 "name": &"ally_archer_die",
 "speed": 5.0
 }, {
@@ -204,7 +207,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"ally_archer_idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -239,7 +242,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2jth6")
 }],
-"loop": true,
+"loop": false,
 "name": &"ally_mage_die",
 "speed": 5.0
 }, {
@@ -258,7 +261,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"ally_mage_idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -294,8 +297,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_b0dep")
 }],
 "loop": false,
-"name": &"ally_soldier_die",
-"speed": 6.0
+"name": &"ally_warrior_die",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -310,8 +313,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ruro2")
 }],
-"loop": false,
-"name": &"ally_soldier_idle",
+"loop": true,
+"name": &"ally_warrior_idle",
 "speed": 10.0
 }, {
 "frames": [{
@@ -328,28 +331,35 @@ animations = [{
 "texture": SubResource("AtlasTexture_8vpj5")
 }],
 "loop": true,
-"name": &"ally_soldier_walk",
-"speed": 8.0
+"name": &"ally_warrior_walk",
+"speed": 10.0
 }]
 
-[node name="unit" type="CharacterBody2D" unique_id=496923938]
+[node name="unit" type="CharacterBody2D"]
 scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_k673f")
 stats = SubResource("UnitStats_warrior")
 
-[node name="BodyCollision" type="CollisionShape2D" parent="." unique_id=654081687]
+[node name="BodyCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_r0du0")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=150776031]
-position = Vector2(54, -16)
-collision_layer = 2
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+monitoring = false
 
-[node name="DetectionCollision" type="CollisionShape2D" parent="Area2D" unique_id=56302105]
-position = Vector2(-54, 16)
+[node name="DetectionCollision" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_03owx")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1582026320]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4.7683716e-07, 4.7683716e-07)
-scale = Vector2(0.9494382, 0.9444444)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_warrior_player")
 animation = &"ally_mage_idle"
+
+[node name="SelectionCircle" type="Node2D" parent="."]
+script = ExtResource("3_selection_circle")
+
+[node name="PropertiesUI" parent="." instance=ExtResource("4_properties_ui")]
+visible = false

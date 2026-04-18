@@ -43,6 +43,8 @@ This is a prototype battle system testing project that implements:
 
 ```
 project/
+|-- docs/                  # Documentation
+|   `-- script_architecture.md # Technical graph and signal registry
 |-- scenes/                 # Scene files
 |   |-- Main.tscn          # Main game scene
 |   |-- unit.tscn          # Unit template
@@ -445,20 +447,29 @@ This project is a prototype for educational and testing purposes.
 - [ ] Tank unit type
 - [ ] Card collection system
 - [ ] Wave-based progression
-- [ ] Visual health bars
-- [ ] Sound effects and music
-- [ ] Particle effects
-- [ ] Save/load system
-- [ ] Multiplayer support
-- [ ] Mage unit integration
-- [ ] Warrior unit integration
+### UI & UX
+- [ ] Visual health bars for units and towers
+- [ ] Screen transitions using signals
+- [ ] Improved unit card feedback
 
-### Architecture Improvements
-- [ ] Remove hardcoded team values
-- [ ] Implement constants system
-- [ ] Create unit management system
-- [ ] Add event logging
-- [ ] Improve error handling
+## Architecture & Signals
+
+The project follows a decoupled, signal-based architecture to manage communication between complex game systems.
+
+### Script Interaction Graph
+A comprehensive visual mapping of how managers, entities, and UI components interact is available in the [Script Architecture Documentation](docs/script_architecture.md). 
+
+### Signal Registry
+The core gameplay loops (Spawning, Combat, and Win/Loss) rely on custom signals for clean separation of concerns.
+
+### Unused "Dead End" Signals
+The following signals are currently **omitted from the active game logic** as they have no listeners, but remain as hooks for future features:
+- **`dealt_damage`**: Reserved for a future combat log or XP system.
+- **`game_state_changed`**: UI transitions are currently direct calls for simplicity.
+- **`tower_destroyed_notify`**: Redundant as the manager handles tower loss consequences internally.
+- **`unit_spawned` / `spawn_failed`**: Potential hooks for analytics or particle effects.
+
+Detailed explanations for these can be found in [script_architecture.md](docs/script_architecture.md).
 
 ---
 
