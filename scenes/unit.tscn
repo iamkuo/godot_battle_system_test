@@ -1,9 +1,11 @@
-[gd_scene load_steps=48 format=3 uid="uid://bs71l34xeqxed"]
+[gd_scene load_steps=52 format=3 uid="uid://bs71l34xeqxed"]
 
 [ext_resource type="Script" uid="uid://u2ul061i3w7x" path="res://important_scripts/unit/unit.gd" id="1_k673f"]
 [ext_resource type="Texture2D" uid="uid://bg8ovc14n13vq" path="res://assets/images/characters/goblin_summon.png" id="2_k673f"]
 [ext_resource type="Script" uid="uid://t7d5xt8eik8i" path="res://important_scripts/ui/unit_selection_circle.gd" id="3_selection_circle"]
 [ext_resource type="PackedScene" uid="uid://bdw7ku2f5uedd" path="res://scenes/ui/properties_ui.tscn" id="4_properties_ui"]
+[ext_resource type="FontFile" uid="uid://dxc2pi1bwr1uu" path="res://assets/fonts/Cubic_11.ttf" id="5_ruro2"]
+[ext_resource type="Script" uid="uid://dgm4tyd5p0k51" path="res://scenes/label.gd" id="6_e8hdl"]
 
 [sub_resource type="Resource" id="UnitStats_warrior"]
 resource_name = "UnitStats"
@@ -335,6 +337,15 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Theme" id="Theme_oee7j"]
+default_font = ExtResource("5_ruro2")
+default_font_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ruro2"]
+font = ExtResource("5_ruro2")
+font_size = 10
+font_color = Color(0.02745098, 0, 0, 1)
+
 [node name="unit" type="CharacterBody2D"]
 scale = Vector2(1.5, 1.5)
 collision_layer = 2
@@ -363,3 +374,38 @@ script = ExtResource("3_selection_circle")
 
 [node name="PropertiesUI" parent="." instance=ExtResource("4_properties_ui")]
 visible = false
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_e8hdl")
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -27.333334
+offset_right = 1.3333359
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_oee7j")
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -13.333334
+offset_top = -30.0
+offset_right = 15.333334
+offset_bottom = -7.0
+label_settings = SubResource("LabelSettings_ruro2")
+horizontal_alignment = 1

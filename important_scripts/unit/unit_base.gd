@@ -36,13 +36,33 @@ var is_attacking: bool = false
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D if has_node("AnimatedSprite2D") else null
 @onready var selection_circle: Node2D = $SelectionCircle if has_node("SelectionCircle") else null
 @onready var properties_ui: Control = $PropertiesUI if has_node("PropertiesUI") else null
-
+@onready var _health_bar: ProgressBar = $Control/ProgressBar
 func _ready():
 	if stats:
 		current_health = stats.health
 	else:
 		current_health = 100
 		stats = UnitStats.new()
+
+
+
+	current_health = stats.health
+	add_to_group("unit")
+	emit_signal("health_changed",current_health,current_health)
+	
+	if not is_instance_valid(_health_bar):
+		return
+	health_changed.connect(_on_health_bar_changed)
+	call_deferred("_on_health_bar_changed", current_health, stats.health)
+
+func _on_health_bar_changed(cur: int, max_hp: int) -> void:
+	if not _health_bar:
+		return
+	if max_hp <= 0:
+		_health_bar.value = 0.0
+	else:
+		_health_bar.value = 100.0 * float(cur) / float(max_hp)
+
 
 func _physics_process(delta: float):
 	if lifecycle_state != LifecycleState.ALIVE:
